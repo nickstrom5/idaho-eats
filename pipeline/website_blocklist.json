@@ -34,5 +34,98 @@
     "severity": "P0",
     "evidence": "$SP/work/link-scan/evidence/id/blackfootcandyjar.com.html",
     "found": "2026-10-12"
+  },
+  {
+    "domain": "panzerispizza.com",
+    "match": "domain",
+    "place": "Panzeris Pizza (Fruitland)",
+    "reason": "expired: \"Squarespace - Website Expired\"",
+    "severity": "P2",
+    "evidence": "$SP/work/link-scan/evidence/id/panzerispizza.com.html",
+    "found": "2026-10-12"
+  },
+  {
+    "domain": "blueplatecafe.com",
+    "match": "domain",
+    "place": "Blue Plate Cafe (Hayden)",
+    "reason": "another business: Blue Plate Cafe, Alabama (not Hayden, ID)",
+    "severity": "P2",
+    "evidence": "$SP/work/link-scan/evidence/id/blueplatecafe.com.html",
+    "found": "2026-10-12"
+  },
+  {
+    "url": "http://Chick-fil-a.com/atlanticandkernan",
+    "match": "url",
+    "place": "Chick-fil-A (Nampa); Chick-fil-A (Twin Falls); Chick-fil-A (Meridian); Chick-fil-A (Boise); Chick-fil-A (Ammon); Chick-fil-A (Moscow) (+1 more)",
+    "reason": "domain does not resolve: DNS lookup fails (NOERROR) (checked with dig @1.1.1.1)",
+    "severity": "P2",
+    "evidence": null,
+    "found": "2026-10-12",
+    "domain": "http://Chick-fil-a.com/atlanticandkernan"
+  },
+  {
+    "url": "http://chick-fil-a.com/",
+    "match": "url",
+    "place": "Chick-fil-A (Nampa); Chick-fil-A (Twin Falls); Chick-fil-A (Meridian); Chick-fil-A (Boise); Chick-fil-A (Ammon); Chick-fil-A (Moscow) (+1 more)",
+    "reason": "domain does not resolve: DNS lookup fails (NOERROR) (checked with dig @1.1.1.1)",
+    "severity": "P2",
+    "evidence": null,
+    "found": "2026-10-12",
+    "domain": "http://chick-fil-a.com/"
+  },
+  {
+    "url": "http://chick-fil-a.com/lakecity",
+    "match": "url",
+    "place": "Chick-fil-A (Nampa); Chick-fil-A (Twin Falls); Chick-fil-A (Meridian); Chick-fil-A (Boise); Chick-fil-A (Ammon); Chick-fil-A (Moscow) (+1 more)",
+    "reason": "domain does not resolve: DNS lookup fails (NOERROR) (checked with dig @1.1.1.1)",
+    "severity": "P2",
+    "evidence": null,
+    "found": "2026-10-12",
+    "domain": "http://chick-fil-a.com/lakecity"
+  },
+  {
+    "domain": "mainmoonrestaurant.com",
+    "match": "domain",
+    "place": "Main Moon Restaurant (Ammon)",
+    "reason": "another business (auto, not hand-checked): the site's addresses are in WI and it names neither the city nor the state of Main Moon Restaurant (Ammon)",
+    "severity": "P2",
+    "evidence": "$SP/work/link-scan/evidence/id/mainmoonrestaurant.com.html",
+    "found": "2026-10-12"
+  },
+  {
+    "domain": "redhotroasters.com",
+    "match": "domain",
+    "place": "Red Hot Roasters (Pocatello)",
+    "reason": "another business (auto, not hand-checked): the site's addresses are in KY and it names neither the city nor the state of Red Hot Roasters (Pocatello)",
+    "severity": "P2",
+    "evidence": "$SP/work/link-scan/evidence/id/redhotroasters.com.html",
+    "found": "2026-10-12"
+  },
+  {
+    "domain": "mybistro.online",
+    "match": "domain",
+    "place": "Sunrise Espresso (Grangeville)",
+    "reason": "listing farm or directory, not the place's own site: auto-generated restaurant listing pages ('<name> - <city> - Full Menu, Reviews, Photos'), not the place's own site",
+    "severity": "P3",
+    "evidence": null,
+    "found": "2026-10-12"
+  },
+  {
+    "domain": "openingtimes.co",
+    "match": "domain",
+    "place": "Longhorn Saloon (Castleford); Rosa's Mexican/ American Restaurant (Wilder)",
+    "reason": "listing farm or directory, not the place's own site: opening-hours directory, not the place's own site",
+    "severity": "P3",
+    "evidence": null,
+    "found": "2026-10-12"
+  },
+  {
+    "domain": "cyrusramsey.com",
+    "match": "domain",
+    "place": "Vazquez Mexican Restaurant (Blackfoot)",
+    "reason": "listing farm or directory, not the place's own site: food blog/directory place pages, not the place's own site",
+    "severity": "P3",
+    "evidence": null,
+    "found": "2026-10-12"
   }
 ]
