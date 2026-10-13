@@ -549,11 +549,12 @@ def crumbs(trail):
 STORE_NOTE = "Free for iPhone and iPad." if APP_STORE_URL else f"{BRAND} for iPhone and iPad is free, with its App Store release still ahead."
 
 
-def store_button(label="Get early access"):
+def store_button(label="Ask for early access"):
     if APP_STORE_URL:   # Apple's own badge artwork, unaltered (see APP_STORE_URL above)
         return (f'<a class="store-badge" href="{e(APP_STORE_URL)}" rel="noopener">'
                 f'<img src="{APP_STORE_BADGE}" alt="Download on the App Store" width="120" height="40"></a>')
-    # a plain mailto button until launch: no Apple logo (Apple allows it only in its own badge artwork)
+    # a plain mailto button until launch: no Apple logo (Apple allows it only in its own badge artwork). Only Nick's internal
+    # TestFlight group exists (Nick, 2026-10-13), so the label is an ask and no copy says we'll send an invite or a link.
     return (f'<a class="btn store-btn" href="mailto:{EMAIL}?subject=Idaho%20Eats%20early%20access&amp;body=Send%20me%20the%20TestFlight%20link.">'
             f'<span class="store-label">{label}</span></a>')
 

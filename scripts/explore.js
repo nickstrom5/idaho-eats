@@ -276,7 +276,7 @@
 
   // ---------------------------------------------------------------- place panel
   const JUR = { 1: "Idaho State Police alcohol licenses (Alcohol Beverage Control)" };
-  const TIER = { 2: "On an official record", 1: "Confirmed listing", 0: "Listing only" };
+  const TIER = { 2: "On an official record", 1: "High-confidence listing", 0: "Listing only" };   // the family wording (Nick, 2026-10-13)
 
   // the share of listings like this one that matched a licensed business in a test against Denver's full food-license list
   // (same Overture release): Idaho has no public food-license list to test against
@@ -378,7 +378,7 @@
     const storeUrl = safeUrl(APP.dataset.store);   // set by scripts/make-site.py once the App Store listing exists
     html += storeUrl
       ? `<p class="ex-app">Save it on your phone: <a href="${esc(storeUrl)}" rel="noopener">get the free iPhone app</a></p>`
-      : `<p class="ex-app">The iPhone app is coming soon. <a href="${BASE}/#download">Get early access</a></p>`;
+      : `<p class="ex-app">The iPhone app is coming soon. <a href="${BASE}/#download">Ask for early access</a></p>`;
     panel.innerHTML = html;
     panel.dataset.id = p.id;
     panel.hidden = false;

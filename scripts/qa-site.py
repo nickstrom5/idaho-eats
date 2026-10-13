@@ -22,6 +22,10 @@ Static (no browser), every HTML file:
   privacy.html names every localStorage key explore.js writes; one comment only, the apple-itunes-app placeholder in <head>
 - every page links mailto:nick@eatsranked.com, and work-with-nick@gmail.com appears nowhere in docs/; every footer says "Part of Eats
   Ranked" with a link to https://eatsranked.com/, and the #org Organization has that parentOrganization; dish lines are in a fixed order
+- Nick's copy decisions (2026-10-13): "Confirmed listing" and "Confirmed only" (any case) nowhere in docs/, and the web app's tier label
+  is "High-confidence listing"; nothing promises a TestFlight invite or link (only Nick's internal TestFlight group exists): no "we'll/you'll ... invite,
+  TestFlight or beta", no "send you an invite/link", no "early access is by invite", no "ask for an invite and try it", no "a TestFlight
+  invite/link" in the copy, no "Get early access" (the button and the panel ask: "Ask for early access")
 - no domain or URL from pipeline/website_blocklist.json anywhere in docs/ (any case, www. or not, http or https, subdomains), and the
   blocklist is there and not empty (so the check can't pass by checking nothing)
 Browser (Playwright, channel="chrome", one browser at a time): every page at 375 and 1280 px: no horizontal scroll, one <h1>, no console
@@ -81,6 +85,17 @@ OTHER_PREFIXES = ["coeats-", "ce-", "we-", "wae-", "nye-", "fleats-", "cae-", "m
 EMAIL, OLD_EMAILS = "nick@eatsranked.com", ["work-with-nick@gmail.com"]
 # every page says it's part of the Eats Ranked family: a footer link to the hub, and the Organization names its parent
 HUB, HUB_ORG = "https://eatsranked.com/", "https://eatsranked.com/#organization"
+# Nick, 2026-10-13: "High-confidence listing", never "Confirmed listing"; and the site promises no TestFlight invite or link (only his
+# internal TestFlight group exists), so the early-access copy ends at an ask ("Ask for early access")
+OLD_LABEL = re.compile(r"confirmed\s+listing", re.I)
+NEW_LABEL = "High-confidence listing"
+OLD_FILTER = re.compile(r"\bconfirmed\s+only\b", re.I)   # the web app's filter is "High-confidence only" (code comments may still say "confirmed")
+PROMISES = [re.compile(r"\b(we'll|we will|we'd|we would|you'll|you will|you'd|you would)\b[^.]{0,60}\b(invites?|invitations?|testflight|beta)\b", re.I),
+            re.compile(r"\b(send|email|text|mail)(s|ing)? you\b[^.]{0,40}\b(invites?|invitations?|testflight|beta|link)\b", re.I),
+            re.compile(r"\bget (early access|an? (testflight|beta|invite|invitation)|the (testflight|beta)( (link|build|app))?|invited)\b", re.I),
+            re.compile(r"\b(early access|access|testflight|the beta)\b[^.]{0,20}\bby invit(e|ation)\b", re.I),   # "early access is by invite"
+            re.compile(r"\bask for\b[^.]{0,40}\band (then )?(try|get|use|download|install)\b", re.I),         # "ask for an invite and try it"
+            re.compile(r"\btestflight\s+(invit|link)", re.I)]   # offering "a TestFlight invite/link" (a mailto body is %20-encoded, so it's left alone)
 # other state sites, apps and repos must not be named in this site's public files (comments in the web app's code included). Allowed:
 # places' own words from the data (a "New York-style pizza" on a menu), Idaho's Washington County, the James Beard Mountain region and
 # the Denver food-license test the listing confidence comes from.
@@ -592,6 +607,21 @@ def static_checks():
             for old in OLD_EMAILS:
                 if old in raw:
                     problems.append(f"{rel(f)}: has the old contact address {old} (the site uses {EMAIL})")
+    # --- Nick's copy decisions (2026-10-13), over every text file in docs/ (pages, attributes, JSON-LD, the web app's code and data;
+    # entities decoded, curly apostrophes straightened): no "Confirmed listing", and no promise of a TestFlight invite or link
+    for f in glob.glob(os.path.join(DOCS, "**", "*"), recursive=True):
+        if os.path.isfile(f) and f.endswith((".html", ".json", ".txt", ".xml", ".webmanifest", ".js", ".css")):
+            flat = html.unescape(open(f, encoding="utf-8", errors="ignore").read()).replace("\u2019", "'")
+            if OLD_LABEL.search(flat):
+                problems.append(f"{rel(f)}: says \"Confirmed listing\" (the label is \"{NEW_LABEL}\")")
+            if OLD_FILTER.search(flat):
+                problems.append(f"{rel(f)}: says \"Confirmed only\" (a filter for it would be \"High-confidence only\")")
+            for rx in PROMISES:
+                m = rx.search(flat)
+                if m:
+                    problems.append(f"{rel(f)}: promises a TestFlight invite or early access: {m.group(0)!r} (the copy ends at an ask)")
+    if not re.search(r'const TIER = \{[^}]*1: "' + re.escape(NEW_LABEL) + '"', pages.get("explore/index.html", "")):
+        problems.append(f"explore/index.html: the place panel's tier label isn't \"{NEW_LABEL}\"")
     # --- blocklisted restaurant websites (hacked, expired, another business's or a directory's page; pipeline/website_blocklist.json):
     # never anywhere in docs/, as a link, as text or in the web app's data, in any case, with or without www. or the scheme
     problems += blocklist_hits()
