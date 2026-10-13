@@ -1,0 +1,302 @@
+{
+ "generated": "2026-10-12",
+ "domain": "https://nickstrom5.github.io/idaho-eats",
+ "restaurants": 4023,
+ "towns": 192,
+ "counties": 44,
+ "hand_checked": 87,
+ "picks": 80,
+ "guides": {
+  "basque": {
+   "places": 7,
+   "page": true
+  },
+  "fingersteaks": {
+   "places": 21,
+   "page": true
+  },
+  "spuds": {
+   "places": 9,
+   "page": true
+  },
+  "huckleberry": {
+   "places": 23,
+   "page": true
+  },
+  "trout": {
+   "places": 12,
+   "page": true
+  },
+  "taquerias": {
+   "places": 9,
+   "page": true
+  },
+  "historic": {
+   "places": 14,
+   "page": true
+  }
+ },
+ "james_beard": {
+  "places": 10,
+  "page": true,
+  "by_honor": {
+   "America's Classic": 1,
+   "James Beard winner": 2,
+   "James Beard nominee": 2,
+   "James Beard semifinalist": 5
+  }
+ },
+ "oldest": {
+  "places": 11,
+  "page": true
+ },
+ "place_pages": 87,
+ "abc_licenses": 0,
+ "cities": {
+  "Boise": {
+   "restaurants": 663,
+   "listed": 26,
+   "picks": 20,
+   "james_beard": 7,
+   "sections": [
+    "basque",
+    "finger-steaks",
+    "spuds",
+    "huckleberry",
+    "taquerias",
+    "historic",
+    "honors",
+    "oldest"
+   ],
+   "indexed": true
+  },
+  "Meridian": {
+   "restaurants": 315,
+   "listed": 3,
+   "picks": 3,
+   "james_beard": 0,
+   "sections": [
+    "basque",
+    "finger-steaks",
+    "huckleberry"
+   ],
+   "indexed": false
+  },
+  "Nampa": {
+   "restaurants": 229,
+   "listed": 7,
+   "picks": 7,
+   "james_beard": 0,
+   "sections": [
+    "finger-steaks",
+    "spuds",
+    "taquerias"
+   ],
+   "indexed": true
+  },
+  "Idaho Falls": {
+   "restaurants": 224,
+   "listed": 1,
+   "picks": 1,
+   "james_beard": 0,
+   "sections": [
+    "oldest"
+   ],
+   "indexed": false
+  },
+  "Pocatello": {
+   "restaurants": 145,
+   "listed": 0,
+   "picks": 0,
+   "james_beard": 0,
+   "sections": [],
+   "indexed": false
+  },
+  "Caldwell": {
+   "restaurants": 116,
+   "listed": 5,
+   "picks": 4,
+   "james_beard": 1,
+   "sections": [
+    "finger-steaks",
+    "spuds",
+    "taquerias",
+    "honors"
+   ],
+   "indexed": true
+  },
+  "Coeur d'Alene": {
+   "restaurants": 239,
+   "listed": 2,
+   "picks": 2,
+   "james_beard": 0,
+   "sections": [
+    "huckleberry"
+   ],
+   "indexed": false
+  },
+  "Twin Falls": {
+   "restaurants": 161,
+   "listed": 3,
+   "picks": 3,
+   "james_beard": 0,
+   "sections": [
+    "finger-steaks",
+    "spuds",
+    "huckleberry",
+    "trout"
+   ],
+   "indexed": false
+  },
+  "Post Falls": {
+   "restaurants": 106,
+   "listed": 0,
+   "picks": 0,
+   "james_beard": 0,
+   "sections": [],
+   "indexed": false
+  },
+  "Lewiston": {
+   "restaurants": 87,
+   "listed": 0,
+   "picks": 0,
+   "james_beard": 0,
+   "sections": [],
+   "indexed": false
+  },
+  "Rexburg": {
+   "restaurants": 73,
+   "listed": 0,
+   "picks": 0,
+   "james_beard": 0,
+   "sections": [],
+   "indexed": false
+  },
+  "Eagle": {
+   "restaurants": 75,
+   "listed": 0,
+   "picks": 0,
+   "james_beard": 0,
+   "sections": [],
+   "indexed": false
+  },
+  "Moscow": {
+   "restaurants": 83,
+   "listed": 0,
+   "picks": 0,
+   "james_beard": 0,
+   "sections": [],
+   "indexed": false
+  },
+  "Sandpoint": {
+   "restaurants": 70,
+   "listed": 5,
+   "picks": 5,
+   "james_beard": 0,
+   "sections": [
+    "huckleberry",
+    "historic",
+    "oldest"
+   ],
+   "indexed": true
+  },
+  "Ketchum": {
+   "restaurants": 49,
+   "listed": 6,
+   "picks": 6,
+   "james_beard": 1,
+   "sections": [
+    "spuds",
+    "huckleberry",
+    "trout",
+    "historic",
+    "honors",
+    "oldest"
+   ],
+   "indexed": true
+  },
+  "McCall": {
+   "restaurants": 43,
+   "listed": 2,
+   "picks": 2,
+   "james_beard": 0,
+   "sections": [
+    "finger-steaks",
+    "historic",
+    "oldest"
+   ],
+   "indexed": false
+  },
+  "Hailey": {
+   "restaurants": 31,
+   "listed": 1,
+   "picks": 1,
+   "james_beard": 0,
+   "sections": [
+    "trout"
+   ],
+   "indexed": false
+  }
+ },
+ "regions": {
+  "north-idaho": {
+   "restaurants": 691,
+   "listed": 17,
+   "picks": 17,
+   "indexed": true
+  },
+  "north-central-idaho": {
+   "restaurants": 247,
+   "listed": 2,
+   "picks": 2,
+   "indexed": false
+  },
+  "southwest-idaho": {
+   "restaurants": 497,
+   "listed": 12,
+   "picks": 11,
+   "indexed": true
+  },
+  "boise-mccall-mountain-home": {
+   "restaurants": 1315,
+   "listed": 32,
+   "picks": 26,
+   "indexed": true
+  },
+  "magic-valley-wood-river": {
+   "restaurants": 461,
+   "listed": 14,
+   "picks": 14,
+   "indexed": true
+  },
+  "southeast-idaho": {
+   "restaurants": 314,
+   "listed": 1,
+   "picks": 1,
+   "indexed": false
+  },
+  "eastern-idaho": {
+   "restaurants": 498,
+   "listed": 9,
+   "picks": 9,
+   "indexed": true
+  }
+ },
+ "noindex_pages": [
+  "cities/meridian.html",
+  "cities/idaho-falls.html",
+  "cities/pocatello.html",
+  "cities/coeur-dalene.html",
+  "cities/twin-falls.html",
+  "cities/post-falls.html",
+  "cities/lewiston.html",
+  "cities/rexburg.html",
+  "cities/eagle.html",
+  "cities/moscow.html",
+  "cities/mccall.html",
+  "cities/hailey.html",
+  "regions/north-central-idaho.html",
+  "regions/southeast-idaho.html"
+ ],
+ "min_list": 4
+}

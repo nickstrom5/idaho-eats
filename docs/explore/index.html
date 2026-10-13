@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en" data-base="/idaho-eats">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-pNuxsoaMoe/5rJP5GOy+2EF8Jey54/Xp5T6n3TVXLpo='; style-src 'sha256-ETJTzXtrNqLLnVEjcONDNkd8pt+Ui8XbjLeUVlKIYwQ='; img-src 'self' data:; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="color-scheme" content="light">
+<title>Search Idaho Restaurants, Finger Steaks &amp; Basque Food</title>
+<meta name="description" content="Search 4,023 Idaho restaurants by name, town, street or dish, and map 80 hand-checked picks: Basque food, finger steaks, spud plates and huckleberry.">
+<link rel="canonical" href="https://nickstrom5.github.io/idaho-eats/explore/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#4b2a5c">
+<!-- <meta name="apple-itunes-app" content="app-id=APP_ID"> fill in once the App Store record exists -->
+<meta property="og:title" content="Search Idaho Restaurants, Finger Steaks &amp; Basque Food">
+<meta property="og:description" content="Search 4,023 Idaho restaurants by name, town, street or dish, and map 80 hand-checked picks: Basque food, finger steaks, spud plates and huckleberry.">
+<meta property="og:url" content="https://nickstrom5.github.io/idaho-eats/explore/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Idaho Eats">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://nickstrom5.github.io/idaho-eats/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Idaho Eats: Finger steaks, Basque &amp; spud guide. Idaho restaurants, with hand-checked Basque kitchens, finger steaks, drive-ins and spud plates.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Search Idaho Restaurants, Finger Steaks &amp; Basque Food">
+<meta name="twitter:description" content="Search 4,023 Idaho restaurants by name, town, street or dish, and map 80 hand-checked picks: Basque food, finger steaks, spud plates and huckleberry.">
+<meta name="twitter:image" content="https://nickstrom5.github.io/idaho-eats/og.png">
+<link rel="icon" href="/idaho-eats/favicon.svg" type="image/svg+xml">
+<link rel="icon" type="image/png" sizes="32x32" href="/idaho-eats/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/idaho-eats/apple-touch-icon.png">
+<link rel="manifest" href="/idaho-eats/site.webmanifest">
+<style>
+  :root {
+    --bg: #f8f4ec; --surface: #fffdf9; --surface2: #f1ece2; --rule: #e2dacc; --rule2: #c7bba8;
+    --ink: #1f1a24; --ink2: #3a3342; --muted: #5e5668;
+    --huck: #4b2a5c; --pine: #2e5a4c; --on-dark: #fff; --russet: #c9a06b; --russetsoft: #efe1c8; --on-russet: #1f1a24;
+    --land: #fffdf9; --mapbg: #e9e3d6; --county: rgba(94,86,104,.35); --dot: #4b2a5c; --pin-pick: #c9a06b; --pin-honor: #2e5a4c; --pin-edge: #1f1a24;
+    --radius: 16px;
+    --text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+    --display: "Avenir Next Condensed", "HelveticaNeue-CondensedBold", "Arial Narrow", system-ui, sans-serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.55 var(--text); -webkit-font-smoothing: antialiased; }
+  a { color: var(--huck); text-underline-offset: 2px; }
+  a:focus-visible, summary:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--pine); outline-offset: 2px; border-radius: 6px; }
+  .skip { position: absolute; left: -9999px; top: 0; background: var(--russet); color: var(--on-russet); padding: 10px 14px; font-weight: 700; z-index: 30; }
+  .skip:focus { left: 8px; top: 8px; }
+  .vh { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+  header.site { display: flex; align-items: center; justify-content: space-between; gap: 6px 12px; padding: 12px 0 8px; }
+  .ridge { display: block; width: 100%; height: 30px; color: var(--pine); }
+  .ridge .granite { fill: var(--pine); } .ridge .snow { fill: #fff; opacity: .9; } .ridge .line { fill: var(--huck); }
+  .logo { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font: 800 22px/1 var(--display); text-transform: uppercase; letter-spacing: .01em; color: var(--huck); text-decoration: none; }
+  .logo svg { border-radius: 8px; flex: 0 0 auto; }
+  header.site nav { display: flex; flex-wrap: wrap; gap: 0 12px; justify-content: flex-end; }
+  header.site nav a, footer nav a, nav.crumbs a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
+  header.site nav a { color: var(--ink2); text-decoration: none; font-size: 15px; }
+  header.site nav a:hover { color: var(--huck); text-decoration: underline; }
+  h1, h2 { font-family: var(--display); font-weight: 800; color: var(--huck); letter-spacing: -.005em; }
+  h1 { font-size: clamp(34px, 7.5vw, 54px); line-height: 1.04; margin: 0 0 16px; text-transform: uppercase; overflow-wrap: anywhere; }
+  .kicker { font: 700 15px/1.4 var(--text); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+  h2 { font-size: 32px; line-height: 1.1; margin: 0 0 10px; }
+  h3 { font-size: 18px; margin: 0; line-height: 1.3; }
+  .lede { font-size: 19px; color: var(--ink2); margin: 0 0 26px; }
+  .hero { padding: 34px 0 28px; }
+  section { padding: 36px 0; border-top: 1px solid var(--rule); }
+  section.hero { border: 0; }
+  .sub { color: var(--ink2); margin: 0 0 22px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 44px; background: var(--russet); color: var(--on-russet); font-weight: 700; padding: 13px 20px; border-radius: 14px; text-decoration: none; font-size: 17px; line-height: 1.2; }
+  .btn-ghost { background: transparent; color: var(--huck); border: 2px solid var(--huck); }
+  .store-badge { display: inline-flex; min-height: 44px; align-items: center; }
+  .pill { font-size: 14px; color: var(--muted); }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 28px 0 0; padding: 0; list-style: none; }
+  .stats li { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 14px; }
+  .stats b { display: block; font: 800 30px/1 var(--display); color: var(--huck); }
+  .stats span { font-size: 14px; color: var(--muted); }
+  .steps { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
+  .step { display: flex; gap: 14px; background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px; }
+  .step .n { flex: 0 0 32px; height: 32px; border-radius: 50%; background: var(--russet); color: var(--on-russet); font-weight: 800; display: grid; place-items: center; }
+  .step p { margin: 4px 0 0; color: var(--ink2); }
+  .shots { display: flex; gap: 14px; overflow-x: auto; margin: 0 -20px; padding: 4px 20px 14px; scroll-snap-type: x proximity; list-style: none; }
+  .shots li { flex: 0 0 auto; width: 210px; scroll-snap-align: start; }
+  .shots img { display: block; width: 210px; height: auto; border-radius: 24px; border: 1px solid var(--rule); background: var(--surface2); }
+  .shots p { font-size: 14px; color: var(--muted); margin: 8px 2px 0; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .card { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 18px; }
+  .card p { margin: 6px 0 0; color: var(--ink2); }
+  a.card { display: block; text-decoration: none; color: var(--ink); }
+  a.card h3 { color: var(--huck); }
+  a.card:hover h3 { text-decoration: underline; }
+  .cities { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+  .cities a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--rule2); background: var(--surface); text-decoration: none; color: var(--ink); font-size: 15px; }
+  .cities a:hover { border-color: var(--huck); }
+  .cities a[aria-current] { border-color: var(--huck); font-weight: 700; }
+  details { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 2px 18px; margin-bottom: 10px; }
+  summary { cursor: pointer; padding: 14px 0; min-height: 44px; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; color: var(--huck); font-weight: 800; }
+  details[open] summary::after { content: "\2013"; }
+  details p { margin: 0 0 16px; color: var(--ink2); }
+  .final { text-align: center; }
+  .final .cta-row { justify-content: center; }
+  nav.crumbs { font-size: 14px; color: var(--muted); padding: 6px 0 0; }
+  nav.crumbs ol { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0 6px; }
+  nav.crumbs li { display: inline-flex; align-items: center; min-height: 44px; }
+  nav.crumbs li + li::before { content: "/"; margin-right: 6px; color: var(--muted); }
+  nav.crumbs a { color: var(--muted); }
+  .places { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .places li { background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; padding: 14px 16px; min-width: 0; overflow-wrap: anywhere; scroll-margin-top: 12px; }
+  .places li:target { border-color: var(--huck); box-shadow: 0 0 0 2px var(--huck); }
+  .places h3 a { display: block; padding: 11px 0; margin: -11px 0; text-decoration: none; }
+  .places h3 a:hover { text-decoration: underline; }
+  .places .where { margin: 2px 0 0; font-size: 15px; color: var(--muted); }
+  .places .facts { margin: 8px 0 0; font-size: 15px; color: var(--ink2); }
+  .places .facts b { color: var(--ink); font-weight: 600; }
+  .places .note { margin: 6px 0 0; font-size: 15px; color: var(--ink2); }
+  .places .fine { margin: 6px 0 0; }
+  .places .link { font-size: 15px; margin: 2px 0 -8px; }
+  .places .link a, .near a, .toc a, .plinks a, td a, .lookup a { display: inline-flex; align-items: center; min-height: 44px; min-width: 44px; }
+  .tag { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; background: var(--russetsoft); color: var(--on-russet); border-radius: 6px; padding: 1px 6px; margin-right: 4px; }
+  .tag-jb { background: var(--pine); color: var(--on-dark); }
+  .toc { columns: 2; padding-left: 20px; margin: 0; }
+  .near { list-style: none; padding: 0; margin: 0; }
+  .near span { display: block; font-size: 14px; color: var(--muted); margin: -8px 0 6px; }
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 6px 0 0; }
+  .actions .btn { font-size: 16px; padding: 10px 16px; }
+  dl.facts { display: grid; grid-template-columns: max-content 1fr; gap: 10px 18px; margin: 0 0 18px; }
+  dl.facts dt { font-weight: 700; color: var(--ink); }
+  dl.facts dd { margin: 0; color: var(--ink2); }
+  dl.facts ul { margin: 0; padding-left: 18px; }
+  .addr { font-size: 17px; color: var(--ink2); margin: 0 0 14px; }
+  .qa h3 { margin: 22px 0 6px; font-size: 19px; }
+  .qa p { margin: 0 0 10px; color: var(--ink2); }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  td.n, th.n { text-align: right; font-variant-numeric: tabular-nums; }
+  .tbl { overflow-x: auto; }
+  .fine { font-size: 14px; color: var(--muted); }
+  .legal h2 { font-size: 26px; margin-top: 28px; }
+  .legal p, .legal li { color: var(--ink2); }
+  .notice { white-space: pre-wrap; font-size: 14px; color: var(--ink2); background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 14px; overflow-wrap: anywhere; }
+  footer { padding: 24px 0 56px; color: var(--muted); font-size: 14px; border-top: 1px solid var(--rule); margin-top: 20px; }
+  footer nav { display: flex; flex-wrap: wrap; gap: 0 18px; }
+  footer a { color: var(--muted); }
+  footer p { margin: 12px 0 0; }
+  @media (max-width: 600px) {
+    .grid2 { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .toc { columns: 1; }
+    header.site { flex-direction: column; align-items: flex-start; }
+    header.site nav { justify-content: flex-start; }
+    dl.facts { grid-template-columns: 1fr; gap: 2px; }
+    dl.facts dd { margin-bottom: 10px; }
+    th, td { padding: 8px 4px; font-size: 14px; }
+  }
+
+  [hidden] { display: none !important; }
+  .ex-hero { padding: 22px 0 4px; }
+  .ex-hero h1 { font-size: clamp(30px, 6vw, 44px); }
+  .ex-hero .sub { margin-bottom: 12px; }
+  .ex-controls { background: var(--bg); padding: 6px 0 8px; border-bottom: 1px solid var(--rule); }
+  .ex-guides { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0 8px; scrollbar-width: none; }
+  @media (min-width: 601px) { .ex-guides { flex-wrap: wrap; overflow: visible; } }
+  @media (max-width: 600px) { .ex-guides { padding-right: 32px; -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 32px), transparent); } }
+  .ex-guides button, .ex-view button, .ex-small, .ex-linkbtn { flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px;
+    border: 1px solid var(--rule2); background: var(--surface); color: var(--huck); border-radius: 999px; padding: 0 14px; font: 600 15px/1.2 var(--text); cursor: pointer; }
+  .ex-guides button[aria-pressed="true"], .ex-view button[aria-pressed="true"] { background: var(--huck); color: var(--on-dark); border-color: var(--huck); }
+  .ex-guides button:disabled, .ex-small:disabled { cursor: default; }
+  .ex-linkbtn { border-color: var(--huck); margin-left: 4px; }
+  .ex-row1 { display: flex; gap: 8px; align-items: center; }
+  .ex-row1 input[type=search] { flex: 1; min-width: 0; min-height: 44px; font: 16px/1.3 var(--text); padding: 10px 12px; border: 2px solid var(--huck); border-radius: 12px; background: var(--surface); color: var(--ink); }
+  @media (max-width: 370px) { .ex-row1 { flex-wrap: wrap; } .ex-row1 input[type=search] { flex-basis: 100%; } }   /* the search hint was cut at 320 px: Near me goes under the box */
+  .ex-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: center; margin-top: 8px; }
+  .ex-sel select { width: 100%; min-height: 44px; font: 16px/1.2 var(--text); padding: 6px 8px; border: 1px solid var(--rule2); border-radius: 10px; background: var(--surface); color: var(--ink); }
+  .ex-check { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: 16px; color: var(--ink); cursor: pointer; }
+  .ex-check input { width: 20px; height: 20px; margin: 0; accent-color: var(--huck); }
+  .ex-off { visibility: hidden; }
+  .ex-view { display: flex; gap: 4px; justify-self: end; }
+  @media (min-width: 700px) {
+    .ex-row2 { display: flex; flex-wrap: wrap; }
+    .ex-sel select { width: 13em; }
+    .ex-view { margin-left: auto; }
+  }
+  #ex-sub { margin: 6px 0 0; font-size: 14px; line-height: 1.45; min-height: 1.45em; color: var(--ink2); }
+  @media (max-width: 699px) { #ex-sub { min-height: 2.9em; } }
+  #ex-count { margin: 4px 0 0; font-size: 14px; line-height: 1.45; min-height: 1.45em; color: var(--muted); }
+  #ex-locmsg { font-size: 13px; color: var(--muted); margin: 4px 0 0; }
+  #ex-locmsg:empty { display: none; }
+  #ex-locmsg.ex-away { color: var(--ink2); }
+  #ex-listwrap { min-height: 100vh; }
+  #ex-loading { padding: 18px 4px; color: var(--ink2); margin: 0; }
+  .ex-list { list-style: none; padding: 0; margin: 10px 0; }
+  .ex-list li + li { border-top: 1px solid var(--rule); }
+  .ex-row { width: 100%; min-height: 44px; display: flex; gap: 12px; align-items: center; text-align: left; background: none; border: 0; padding: 12px 4px; cursor: pointer; color: var(--ink); font: inherit; }
+  .ex-row:hover { background: var(--surface2); }
+  .ex-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+  .ex-main b { font-weight: 650; overflow-wrap: anywhere; }
+  .ex-town { font-size: 14px; color: var(--muted); }
+  .ex-chips .tag { margin: 0 4px 2px 0; }
+  .tag-plain { background: var(--surface2); color: var(--huck); }
+  .tag-dash { background: transparent; color: var(--muted); border: 1px dashed var(--muted); }
+  .ex-metric { text-align: right; display: flex; flex-direction: column; }
+  .ex-metric b { font: 800 22px/1 var(--display); color: var(--huck); }
+  .ex-metric small { font-size: 12px; color: var(--muted); }
+  .ex-rank { flex: 0 0 34px; height: 34px; display: grid; place-items: center; font: 800 20px/1 var(--display); color: var(--huck); border-radius: 8px; }
+  .ex-rank.top { background: var(--russet); color: var(--on-russet); }
+  .ex-empty { padding: 24px 4px; color: var(--muted); }
+  .ex-few { padding-top: 14px; }
+  .ex-widen { display: flex; width: fit-content; max-width: 100%; margin-top: 10px; padding: 8px 16px; text-align: left; text-wrap: balance; border-color: var(--huck); }   /* a guide search with few or no matches: the same search in All restaurants */
+  #ex-more { display: flex; margin: 8px auto 24px; }
+  #ex-mapwrap { position: relative; height: min(78vh, 760px); margin: 10px 0 20px; border: 1px solid var(--rule); border-radius: 16px; overflow: hidden; background: var(--mapbg); }
+  #ex-map { width: 100%; height: 100%; display: block; touch-action: none; cursor: grab; }
+  .ex-zoom { position: absolute; right: 10px; top: 10px; display: flex; flex-direction: column; gap: 6px; }
+  .ex-zoom button { width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--rule2); background: var(--surface); color: var(--huck); font: 700 22px/1 var(--text); cursor: pointer; }
+  #ex-maphint { position: absolute; left: 10px; bottom: 8px; margin: 0; font-size: 13px; background: var(--surface); padding: 3px 8px; border-radius: 999px; color: var(--ink2); }
+  .ex-panel { position: fixed; z-index: 20; right: 0; top: 0; bottom: 0; width: min(440px, 100%); overflow-y: auto; background: var(--surface); border-left: 1px solid var(--rule); box-shadow: -8px 0 24px rgba(0,0,0,.12); padding: 14px 20px 40px; }
+  .ex-scrim { position: fixed; inset: 0; z-index: 19; background: rgba(31,26,36,.28); }   /* behind the modal panel; a click on it closes the panel */
+  @media (max-width: 600px) { .ex-panel { top: auto; height: 86vh; border-left: 0; border-top: 4px solid var(--russet); border-radius: 18px 18px 0 0; } }
+  .ex-close { position: sticky; top: 0; float: right; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--rule2); background: var(--surface); font: 400 26px/1 var(--text); cursor: pointer; color: var(--ink); }
+  .ex-kicker { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--pine); }
+  .ex-panel h2 { font-size: 34px; margin: 4px 0 6px; text-transform: uppercase; overflow-wrap: anywhere; }
+  .ex-addr, .ex-dist { margin: 0 0 4px; color: var(--ink2); font-size: 15px; }
+  .ex-actions { margin: 14px 0 8px; display: grid; gap: 8px; }
+  .ex-apple { justify-content: center; }
+  .ex-act-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .ex-act-row a, .ex-act-row button { flex: 1; min-width: 88px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center; text-align: center; padding: 8px 10px; border: 1px solid var(--rule2); border-radius: 12px; text-decoration: none; color: var(--huck); font: 600 15px/1.2 var(--text); background: var(--surface); cursor: pointer; }
+  .ex-act-row button[aria-pressed="true"] { background: var(--russetsoft); color: var(--on-russet); }
+  .ex-sec { margin-top: 18px; }
+  .ex-sec h3 { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--rule); padding-bottom: 6px; margin-bottom: 8px; }
+  .ex-sec p, .ex-sec li { font-size: 15px; color: var(--ink2); margin: 6px 0; }
+  .ex-sec a, .ex-app a { display: inline-flex; align-items: center; min-height: 44px; }
+  .ex-kv { display: flex; justify-content: space-between; gap: 12px; font-size: 15px; padding: 3px 0; }
+  .ex-kv span { color: var(--ink2); }
+  .ex-kv b { text-align: right; }
+  .ex-fine { font-size: 13px !important; color: var(--muted) !important; }
+  .ex-app { margin-top: 22px; font-size: 14px; color: var(--muted); }
+  body.ex-open { overflow: hidden; }
+  @media (min-width: 601px) { body.ex-open { overflow: auto; } }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://nickstrom5.github.io/idaho-eats/#org","name":"Idaho Eats","url":"https://nickstrom5.github.io/idaho-eats/","logo":{"@type":"ImageObject","url":"https://nickstrom5.github.io/idaho-eats/icon-512.png","width":512,"height":512},"founder":{"@id":"https://nickstrom5.github.io/idaho-eats/about.html#nicholas-soderstrom"},"email":"nick@eatsranked.com","contactPoint":{"@type":"ContactPoint","contactType":"customer support","email":"nick@eatsranked.com","availableLanguage":"en"},"parentOrganization":{"@type":"Organization","@id":"https://eatsranked.com/#organization","name":"Eats Ranked","url":"https://eatsranked.com/"}},{"@type":"Person","@id":"https://nickstrom5.github.io/idaho-eats/about.html#nicholas-soderstrom","name":"Nicholas Soderstrom","url":"https://nickstrom5.github.io/idaho-eats/about.html"},{"@type":"WebSite","@id":"https://nickstrom5.github.io/idaho-eats/#website","name":"Idaho Eats","alternateName":["Idaho Eats: Restaurants","Idaho Eats app"],"url":"https://nickstrom5.github.io/idaho-eats/","inLanguage":"en","publisher":{"@id":"https://nickstrom5.github.io/idaho-eats/#org"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Idaho Eats web app","url":"https://nickstrom5.github.io/idaho-eats/explore/","applicationCategory":"TravelApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript","description":"Search 4,023 Idaho restaurants by name, town, street or dish, and map 80 hand-checked picks: Basque food, finger steaks, spud plates and huckleberry.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"publisher":{"@id":"https://nickstrom5.github.io/idaho-eats/#org"},"author":{"@id":"https://nickstrom5.github.io/idaho-eats/about.html#nicholas-soderstrom"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://nickstrom5.github.io/idaho-eats/"},{"@type":"ListItem","position":2,"name":"Search","item":"https://nickstrom5.github.io/idaho-eats/explore/"}]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+  <header class="site">
+    <a class="logo" href="/idaho-eats/" aria-label="Idaho Eats home"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="30" height="30" aria-hidden="true" focusable="false"><rect width="64" height="64" rx="14" fill="#2E5A4C"/><ellipse cx="32" cy="33.22" rx="23.04" ry="13.44" fill="#A8713E"/><path d="M11.31 39.13 A23.04 13.44 0 0 0 52.69 39.13 Z" fill="#8A5A30"/><ellipse cx="16" cy="31.49" rx="1.56" ry="1.06" fill="#8A5A30"/><ellipse cx="48" cy="30.85" rx="1.56" ry="1.06" fill="#8A5A30"/><ellipse cx="37.12" cy="36.19" rx="1.56" ry="1.06" fill="#8A5A30"/><path d="M16.64 25.71 C22.4 20.79 41.6 20.79 47.36 25.71 C40 33.16 24 33.16 16.64 25.71 Z" fill="#F6E7B6"/><rect x="26.24" y="19.15" width="11.52" height="6.62" rx="0.75" fill="#E9B832"/></svg>Idaho Eats</a>
+    <nav aria-label="Main">
+      <a href="/idaho-eats/idaho-basque-restaurants.html">Basque</a>
+      <a href="/idaho-eats/idaho-finger-steaks-drive-ins.html">Finger steaks</a>
+      <a href="/idaho-eats/idaho-spud-plates.html">Spuds</a>
+      <a href="/idaho-eats/cities/">Cities</a>
+      <a href="/idaho-eats/explore/">Search</a>
+    </nav>
+  </header>
+  <svg class="ridge" viewBox="0 0 1000 26" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path class="granite" d="M0 26 L0 14.26 L50 9.66 L80 12.65 L130 4.14 L170 10.12 L210 6.90 L250 11.50 L310 1.38 L350 8.28 L390 5.52 L440 11.96 L500 3.22 L540 9.20 L590 6.44 L640 12.65 L700 2.30 L740 8.74 L790 5.98 L850 11.96 L900 5.06 L950 10.35 L1000 8.28 L1000 26 Z"/><path class="snow" d="M310.0 1.38 L300.8 9.20 L307.7 6.90 L311.4 9.20 L318.3 8.28 Z M700.0 2.30 L690.8 10.12 L697.7 7.82 L701.4 10.12 L708.3 9.20 Z M500.0 3.22 L490.8 11.04 L497.7 8.74 L501.4 11.04 L508.3 10.12 Z"/><rect class="line" x="0" y="23" width="1000" height="3"/></svg>
+<nav class="crumbs" aria-label="Breadcrumb"><ol><li><a href="/idaho-eats/">Home</a></li><li aria-current="page">Search</li></ol></nav>
+  <main id="main">
+  <section class="ex-hero">
+    <p class="kicker">Idaho Eats · in your browser</p>
+    <h1>Search Idaho restaurants</h1>
+    <p class="sub">Pick a guide for the 80 places we checked by hand or the 10 James Beard honorees, or choose All restaurants and type a name, a town, a street or a dish to look through 4,023 Idaho restaurants, cafés, bars and bakeries. It runs on the data the coming iPhone and iPad app ships with, and whatever you save stays in this browser.</p>
+  </section>
+  <noscript><p>Searching needs JavaScript turned on; the guide pages don't: <a href="/idaho-eats/idaho-basque-restaurants.html">Basque restaurants</a>, <a href="/idaho-eats/idaho-finger-steaks-drive-ins.html">finger steaks &amp; drive-ins</a>, <a href="/idaho-eats/idaho-spud-plates.html">spud plates</a>, <a href="/idaho-eats/idaho-huckleberry.html">huckleberry: where to eat it</a>, <a href="/idaho-eats/idaho-trout-restaurants.html">trout restaurants</a>, <a href="/idaho-eats/idaho-taquerias.html">taquerías</a>, <a href="/idaho-eats/idaho-historic-saloons.html">historic saloons &amp; supper clubs</a>, <a href="/idaho-eats/cities/">cities and regions</a>.</p></noscript>
+  <div id="ex-app" data-default="fingersteaks" data-store="">
+    <div class="ex-controls">
+      <div class="ex-guides" role="group" aria-label="Guides"><button type="button" data-g="basque" aria-pressed="false">Basque</button><button type="button" data-g="fingersteaks" aria-pressed="true">Finger Steaks &amp; Drive-Ins</button><button type="button" data-g="spuds" aria-pressed="false">Spud Plates</button><button type="button" data-g="huckleberry" aria-pressed="false">Huckleberry</button><button type="button" data-g="trout" aria-pressed="false">Idaho Trout</button><button type="button" data-g="taquerias" aria-pressed="false">Taquerías</button><button type="button" data-g="historic" aria-pressed="false">Historic Saloons</button><button type="button" data-g="honors" aria-pressed="false">James Beard</button><button type="button" data-g="oldest" aria-pressed="false">Oldest</button><button type="button" data-g="all" aria-pressed="false">All restaurants</button><button type="button" data-g="saved" aria-pressed="false">Saved</button></div>
+      <div class="ex-row1">
+        <label class="vh" for="ex-q">Search</label>
+        <input id="ex-q" type="search" placeholder="Name, town, street or dish" autocomplete="off" enterkeyhint="search" disabled>
+        <button type="button" id="ex-locate" class="ex-small" disabled>Near me</button>
+      </div>
+      <div class="ex-row2">
+        <label class="ex-sel"><span class="vh">Sort</span><select id="ex-sort" disabled><option>Featured first</option></select></label>
+        <label class="ex-sel"><span class="vh">Town</span><select id="ex-town" disabled><option value="">All towns</option></select></label>
+        <label class="ex-sel"><span class="vh">Kind of place</span><select id="ex-cuisine" disabled><option value="">All kinds</option></select></label>
+        <label class="ex-check"><input type="checkbox" id="ex-chains" disabled> Hide chains</label>
+        <button type="button" id="ex-clear" class="ex-small ex-off" disabled>Clear filters</button>
+        <div class="ex-view" role="group" aria-label="View"><button type="button" data-v="list" aria-pressed="true">List</button><button type="button" data-v="map" aria-pressed="false">Map</button></div>
+      </div>
+      <p id="ex-sub"></p>
+      <p id="ex-count" aria-live="polite"></p>
+      <p id="ex-locmsg"></p>
+    </div>
+    <div id="ex-listwrap"><p id="ex-loading" role="status">Loading the restaurant list…</p><ol id="ex-list" class="ex-list"></ol><button type="button" id="ex-more" class="ex-small" hidden></button></div>
+    <div id="ex-mapwrap" hidden>
+      <canvas id="ex-map" role="img" aria-label="Map of Idaho with a dot for each place in the list. The list view has the same places."></canvas>
+      <div class="ex-zoom"><button type="button" id="ex-zin" aria-label="Zoom in">+</button><button type="button" id="ex-zout" aria-label="Zoom out">−</button></div>
+      <p id="ex-maphint"></p>
+    </div>
+  </div>
+  <div id="ex-scrim" class="ex-scrim" hidden></div>
+  <aside id="ex-panel" class="ex-panel" hidden aria-labelledby="ex-pname"></aside>
+  </main>
+<script>
+// Idaho Eats web app: the iPhone app's guides, search, filters, map and place details, in the browser. Keep its guide rules in
+// step with IdahoEats/Models/Guide.swift and its search with IdahoEats/Models/Search.swift.
+// Same data file as the app (split into core + detail by scripts/make-site.py). No cookies, no trackers; saved places and the last
+// guide live in this browser's localStorage only, under "ideats-" keys, because other sites share the nickstrom5.github.io origin.
+// There are no inspection results: Idaho's health districts publish none in bulk, so a place links to its district's own lookup.
+// The page runs under a strict Content-Security-Policy (hash-pinned inline script and style): never add inline event
+// handlers or inline style attributes to the HTML built here; set properties from code instead.
+(() => {
+  "use strict";
+  const BASE = document.documentElement.dataset.base || "";
+  const $ = (s) => document.querySelector(s);
+  const APP = $("#ex-app");
+  // every value that goes into innerHTML passes through esc(), numbers included (the data file is trusted, but not that much)
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const own = (o, k) => typeof k === "string" && Object.prototype.hasOwnProperty.call(o, k);   // "constructor" in a URL is not a guide
+  const PREFIX = "ideats-";
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem(PREFIX + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
+    set(k, v) { try { localStorage.setItem(PREFIX + k, JSON.stringify(v)); } catch { /* private mode */ } },
+  };
+  // only http(s) links leave the page; bare hosts ("example.com/menu") get https://
+  const safeUrl = (u) => {
+    u = String(u ?? "").trim();
+    if (/^https?:\/\/[^\s"'<>\\]+$/i.test(u)) return u;
+    if (/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}(?:[/?#][^\s"'<>\\]*)?$/i.test(u)) return "https://" + u;
+    return null;
+  };
+  const telHref = (ph) => { const t = String(ph ?? "").replace(/[^\d+]/g, ""); return t.replace(/\D/g, "").length >= 10 ? "tel:" + t : null; };
+  const num = (x) => (x == null || x === "" || !Number.isFinite(Number(x)) ? null : Number(x));
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const fmtDate = (s) => { const m = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(s ?? "")); return m ? `${MONTHS[+m[2] - 1]} ${+m[3]}, ${m[1]}` : String(s ?? ""); };
+
+  // ---------------------------------------------------------------- search (a port of IdahoEats/Models/Search.swift)
+  const typeSyn = { avenue: "ave", av: "ave", street: "st", boulevard: "blvd", road: "rd", drive: "dr", place: "pl", court: "ct",
+    parkway: "pkwy", highway: "hwy", lane: "ln", trail: "trl", circle: "cir", terrace: "ter" };
+  const syn = { ...typeSyn, north: "n", south: "s", east: "e", west: "w", saint: "st", mount: "mt", fort: "ft" };
+  const abbrs = new Set(Object.values(syn)), typeAbbrs = new Set(Object.values(typeSyn));
+  // the tag bits, in pipeline/idaho.py's TAGS order (scripts/make-site.py asserts the data file's order matches)
+  const BASQUE = 1, FINGER = 2, DRIVEIN = 4, SPUD = 8, HUCK = 16, TROUT = 32, TAQ = 64, HISTORIC = 128, OLDEST = 256, RESORT = 512;
+  const GUIDE_TAGS = BASQUE | FINGER | DRIVEIN | SPUD | HUCK | TROUT | TAQ | HISTORIC | OLDEST;
+  // a dish ("fry sauce", "trout") is not a tag: it's in each place's search text (its dishes), so it finds the places that serve it
+  const tagPhrases = [["finger steaks", FINGER], ["finger steak", FINGER], ["fingersteaks", FINGER], ["drive ins", DRIVEIN], ["drive in", DRIVEIN],
+    ["drivein", DRIVEIN], ["basque", BASQUE], ["spud plates", SPUD], ["spuds", SPUD], ["huckleberries", HUCK], ["huckleberry", HUCK],
+    ["taquerias", TAQ], ["taqueria", TAQ], ["historic saloons", HISTORIC], ["resort towns", RESORT], ["resort town", RESORT]];
+  function normalize(s) {
+    let t = String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
+    t = t.replace(/\b([a-z0-9])\s*&\s*([a-z0-9])\b/g, "$1$2").replace(/&/g, " and ").replace(/['’`]/g, "");
+    return t.replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  }
+  const normAddr = (s) => normalize(s).split(" ").map((w) => (own(syn, w) ? syn[w] : w)).join(" ");
+  // "huckleberries" -> "huckleberry", "taquerias" -> "taqueria", "spuds" -> "spud" (no lookbehind: older Safari can't parse one)
+  const stemOf = (s) => (/ies$/.test(s) ? s.replace(/ies$/, "y") : s.replace(/(^|[^y])s$/, "$1"));
+
+  function parse(text) {
+    const q = { tokens: [], town: null, townNeedle: null, tag: 0, tagStem: null };
+    let raw = normalize(text).split(" ").filter(Boolean);
+    if (!raw.length) return q;
+    let mapped = raw.map((w) => (own(syn, w) ? syn[w] : w));
+    const find = (phrase) => {
+      const p = phrase.split(" ");
+      for (let i = 0; i + p.length <= mapped.length; i++) if (p.every((w, k) => mapped[i + k] === w)) return [i, i + p.length];
+      return null;
+    };
+    const cut = ([a, b]) => { const words = raw.slice(a, b).join(" "); raw.splice(a, b - a); mapped.splice(a, b - a); return words; };
+    for (const [phrase, tag] of tagPhrases) {
+      const r = find(normalize(phrase));
+      if (r) { q.tag = tag; const stem = stemOf(normalize(cut(r))); q.tagStem = stem ? " " + stem : null; break; }
+    }
+    // the longest town named in the query wins, unless a street type follows it ("meridian rd" is a street)
+    for (const key of TOWN_KEYS_BY_LENGTH) {
+      const r = find(key);
+      if (r && !(r[1] < mapped.length && typeAbbrs.has(mapped[r[1]]))) { q.town = TOWN_KEYS.get(key); q.townNeedle = " " + normalize(cut(r)); break; }
+    }
+    const stop = new Set(["the", "and", "of", "a", "in", "near", "me"]);   // "basque near me" isn't Mexican places
+    let idx = raw.map((_, i) => i);
+    // stop words stay only when they're all there is ("the"); next to a guide or a town ("basque near me") they go
+    if (q.tag || q.town || idx.some((i) => !stop.has(mapped[i]))) idx = idx.filter((i) => !stop.has(mapped[i]));
+    idx.forEach((i, n) => {
+      const token = raw[i], isLast = n === idx.length - 1;
+      if (own(syn, token)) { q.tokens.push([` ${syn[token]} `, ` ${token}`]); return; }
+      const whole = (abbrs.has(token) && (!isLast || token.length > 1)) || (token.length <= 2 && !isLast);
+      const needles = [" " + token + (whole ? " " : "")];
+      if (isLast && token.length >= 3) for (const [word, abbr] of Object.entries(typeSyn)) if (word !== token && word.startsWith(token)) needles.push(` ${abbr} `);
+      q.tokens.push(needles);
+    });
+    // "vista ave": a finished street type sticks to the word before it
+    if (q.tokens.length >= 2 && idx.length && typeAbbrs.has(mapped[idx[idx.length - 1]])) {
+      const last = idx[idx.length - 1], prev = idx[idx.length - 2];
+      q.tokens.splice(-2, 2, [` ${mapped[prev]} ${mapped[last]} `, ` ${raw[prev]} ${raw[last]}`]);
+    }
+    return q;
+  }
+  const qEmpty = (q) => !q.tokens.length && !q.town && !q.tag;
+  function matches(p, q) {
+    if (q.tag && (p.g & q.tag) !== q.tag && !(q.tagStem && p.nameText.includes(q.tagStem))) return false;
+    if (q.town && p.c !== q.town && !(q.townNeedle && p.nameText.includes(q.townNeedle))) return false;
+    return q.tokens.every((needles) => needles.some((n) => p.search.includes(n)));
+  }
+  const nameMatches = (p, q) => q.tokens.length && q.tokens.every((needles) => needles.some((n) => p.nameText.includes(n)));
+
+  // ---------------------------------------------------------------- guides (IdahoEats/Models/Guide.swift)
+  // the guides that promise "hand-checked" list only places checked with a 2025-26 source (hc)
+  const GUIDES = {
+    basque: { title: "Basque", sub: "Boise's Basque Block and Basque kitchens around the state, hand-checked", inc: (p) => p.hc && p.g & BASQUE, sorts: ["featured", "nearest", "name"], idaho: true },
+    fingersteaks: { title: "Finger Steaks & Drive-Ins", sub: "Finger steaks, fry sauce and drive-in burgers, hand-checked", inc: (p) => p.hc && p.g & (FINGER | DRIVEIN), sorts: ["featured", "nearest", "name"], idaho: true },
+    spuds: { title: "Spud Plates", sub: "Potato plates named on the menu, hand-checked", inc: (p) => p.hc && p.g & SPUD, sorts: ["featured", "nearest", "name"], idaho: true },
+    huckleberry: { title: "Huckleberry", sub: "Huckleberry shakes, pies and pancakes, hand-checked", inc: (p) => p.hc && p.g & HUCK, sorts: ["featured", "nearest", "name"], idaho: true },
+    trout: { title: "Idaho Trout", sub: "Idaho rainbow trout on the menu, hand-checked", inc: (p) => p.hc && p.g & TROUT, sorts: ["featured", "nearest", "name"], idaho: true },
+    taquerias: { title: "Taquerías", sub: "Taquerías with a fixed address, hand-checked", inc: (p) => p.hc && p.g & TAQ, sorts: ["featured", "nearest", "name"], idaho: true },
+    historic: { title: "Historic Saloons", sub: "Old saloons and supper clubs, hand-checked", inc: (p) => p.hc && p.g & HISTORIC, sorts: ["featured", "nearest", "name"], idaho: true },
+    honors: { title: "James Beard Honors", sub: "James Beard winners, nominees, semifinalists and America's Classics", inc: (p) => p.jb, sorts: ["iconic", "nearest"] },
+    oldest: { title: "Oldest Places", sub: "Founding years checked at the same address, oldest first", inc: (p) => p.f != null, sorts: ["oldest"], ranked: true },
+    all: { title: "All Restaurants", sub: "Restaurants, cafés, bars and bakeries statewide", inc: () => true, sorts: ["name", "nearest"] },
+    saved: { title: "Saved", sub: "Places you saved in this browser", inc: (p) => saved.has(p.id), sorts: ["name", "nearest"] },
+  };
+  const DEFAULT_GUIDE = own(GUIDES, APP.dataset.default) ? APP.dataset.default : "all";
+  const SORT_LABEL = { featured: "Featured first", nearest: "Nearest", oldest: "Oldest first", name: "A to Z", iconic: "By James Beard honor" };
+  const GUIDE_LABELS = [[BASQUE, "Basque"], [FINGER, "Finger steaks"], [DRIVEIN, "Drive-in"], [SPUD, "Spud plate"], [HUCK, "Huckleberry"],
+    [TROUT, "Trout"], [TAQ, "Taquería"], [HISTORIC, "Historic saloon"]];
+
+  // ---------------------------------------------------------------- state
+  let P = [], D = null, CAL = {}, TOWN_KEYS = new Map(), TOWN_KEYS_BY_LENGTH = [], GENERATED = "", CHECKED = "", ABC = 0, LIQ_DATE = "";
+  let DISTRICT_OF = new Map(), INS_PAGE = "";
+  let here = null, shown = 100, current = [], view = "list", wired = false;
+  const savedRaw = store.get("saved", []);
+  const saved = new Set(Array.isArray(savedRaw) ? savedRaw.filter((x) => typeof x === "string" && x.length < 64) : []);
+  const st = { g: DEFAULT_GUIDE, q: "", sort: "", town: "", cuisine: "", chains: false, p: "" };
+
+  const miles = (a, b) => {
+    const r = Math.PI / 180, dLa = (b.la - a.la) * r, dLo = (b.lo - a.lo) * r;
+    const h = Math.sin(dLa / 2) ** 2 + Math.cos(a.la * r) * Math.cos(b.la * r) * Math.sin(dLo / 2) ** 2;
+    return 3958.8 * 2 * Math.asin(Math.sqrt(h));
+  };
+  const milesText = (m) => (m < 10 ? m.toFixed(1) : Math.round(m)) + " mi";
+  // Idaho's outline, simplified and padded 3 km, (lat, lon) pairs: the same one the app uses (LocationService.swift), because a box
+  // would take in Pullman and Jackson. Every place is in Idaho, so a visitor elsewhere is told why the distances are long.
+  const OUTLINE = [[44.426, -117.25], [44.746, -117.085], [44.901, -116.88], [45.036, -116.875], [45.61, -116.501], [45.726, -116.567],
+    [45.798, -116.795], [45.888, -116.883], [46.077, -117.011], [46.232, -116.987], [46.346, -117.092], [49.008, -117.061],
+    [49.03, -116.041], [48.0, -116.019], [47.713, -115.698], [47.558, -115.684], [47.486, -115.6], [47.427, -115.643],
+    [47.32, -115.495], [47.281, -115.302], [46.744, -114.735], [46.759, -114.635], [46.668, -114.588], [46.66, -114.294],
+    [46.137, -114.456], [45.877, -114.359], [45.783, -114.515], [45.704, -114.465], [45.597, -114.509], [45.495, -114.33],
+    [45.736, -113.991], [45.63, -113.794], [45.342, -113.702], [45.072, -113.425], [44.889, -113.43], [44.795, -113.111],
+    [44.471, -112.976], [44.434, -112.901], [44.534, -112.721], [44.485, -112.394], [44.598, -112.29], [44.557, -112.107],
+    [44.596, -111.866], [44.549, -111.82], [44.586, -111.555], [44.725, -111.512], [44.785, -111.386], [44.493, -111.028],
+    [41.99, -111.019], [41.972, -117.036], [43.831, -117.063], [44.017, -116.971], [44.095, -117.006], [44.158, -116.934],
+    [44.266, -117.237]];
+  function inIdaho(pt) {
+    let inside = false;
+    for (let i = 0, j = OUTLINE.length - 1; i < OUTLINE.length; j = i++) {
+      const [yi, xi] = OUTLINE[i], [yj, xj] = OUTLINE[j];
+      if ((yi > pt.la) !== (yj > pt.la) && pt.lo < (xj - xi) * (pt.la - yi) / (yj - yi) + xi) inside = !inside;
+    }
+    return inside;
+  }
+
+  function order() {
+    const g = GUIDES[st.g];
+    let o = st.sort && g.sorts.includes(st.sort) ? st.sort : g.idaho && here ? "nearest" : g.sorts[0];
+    if (o === "nearest" && !here) o = g.sorts.find((s) => s !== "nearest") || o;   // no location yet: say what the list is really sorted by
+    return o;
+  }
+
+  function allows(p) {
+    if (p.v && st.g !== "saved") return false;            // gas-station counters, stadium stands and the like
+    if (st.town && p.c !== st.town) return false;
+    if (st.cuisine && p.cu !== st.cuisine) return false;
+    if (st.chains && p.ch >= 5) return false;
+    return true;
+  }
+
+  function list() {
+    const g = GUIDES[st.g], q = parse(st.q), o = order();
+    if (qEmpty(q) && st.q.trim()) return [];   // typed something, but nothing searchable ("🍕", "!!!")
+    let out = P.filter((p) => g.inc(p) && allows(p) && (qEmpty(q) || matches(p, q)));
+    const byName = (a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+    const dist = (p) => (here && p.la != null ? miles(here, p) : Infinity);
+    if (o === "nearest" && here) out.sort((a, b) => dist(a) - dist(b) || byName(a, b));
+    else if (o === "featured") out.sort((a, b) => (b.ip ?? -1) - (a.ip ?? -1) || (a.f ?? 9999) - (b.f ?? 9999) || byName(a, b));
+    else if (o === "oldest") out.sort((a, b) => (a.f ?? 9999) - (b.f ?? 9999) || byName(a, b));
+    else if (o === "iconic") {   // the James Beard honor (America's Classic, winner, nominee, semifinalist), then name: the app's order
+      const jb = (p) => (p.h & 1 ? 4 : p.h & 2 ? 3 : p.h & 4 ? 2 : p.h & 8 ? 1 : 0);
+      out.sort((a, b) => jb(b) - jb(a) || byName(a, b));
+    }
+    else out.sort(byName);
+    if (q.tokens.length && !g.ranked) {       // name matches first when searching ("eagle" puts Eagle Rock ahead of the town)
+      const named = out.filter((p) => nameMatches(p, q));
+      if (named.length && named.length < out.length) { const ids = new Set(named); out = named.concat(out.filter((p) => !ids.has(p))); }
+    }
+    return out;
+  }
+
+  // ---------------------------------------------------------------- rendering
+  const jbLabel = (p) => (p.h & 1 ? "America's Classic" : p.h & 2 ? "James Beard winner" : p.h & 4 ? "James Beard nominee"
+    : p.h & 8 ? "James Beard semifinalist" : p.jb ? "James Beard (restaurateur)" : null);
+  function chips(p, max) {
+    const c = [];
+    const jb = jbLabel(p);
+    if (jb) c.push(`<span class="tag tag-jb">${esc(jb)}</span>`);
+    if (p.hc) for (const [bit, label] of GUIDE_LABELS) if (p.g & bit) c.push(`<span class="tag">${esc(label)}</span>`);
+    if (p.g & OLDEST && p.f) c.push(`<span class="tag tag-plain">Since ${esc(p.f)}</span>`);
+    if (p.ch >= 5) c.push(`<span class="tag tag-plain">Chain · ${esc(p.ch)}</span>`);
+    if (p.t === 0 && !p.h && !p.hc) c.push('<span class="tag tag-dash">Listing only</span>');
+    return (max ? c.slice(0, max) : c).join("");
+  }
+
+  function metric(p, o) {
+    if (o === "nearest" && here && p.la != null) return [milesText(miles(here, p)), "away"];
+    if (p.f && st.g !== "all") return [String(p.f), "since"];
+    return null;
+  }
+
+  // before the data arrives: the guide from the URL or the last visit, so nothing moves when the list fills in
+  function preRender() {
+    document.querySelectorAll(".ex-guides button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.g === st.g)));
+    $("#ex-sub").textContent = GUIDES[st.g].sub;
+  }
+
+  function render() {
+    const g = GUIDES[st.g], o = order();
+    current = list();
+    preRender();
+    const sortSel = $("#ex-sort");
+    sortSel.innerHTML = g.sorts.map((s) => `<option value="${esc(s)}"${s === o ? " selected" : ""}>${esc(SORT_LABEL[s])}</option>`).join("");
+    sortSel.disabled = g.sorts.length < 2;
+    const filters = [st.town && `in ${st.town}`, st.cuisine && st.cuisine, st.chains && "no chains"].filter(Boolean);
+    $("#ex-count").textContent = `${current.length.toLocaleString()} ${current.length === 1 ? "place" : "places"} · ${SORT_LABEL[o]}` + (filters.length ? ` · ${filters.join(", ")}` : "");
+    const clear = $("#ex-clear");
+    clear.classList.toggle("ex-off", !filters.length);   // kept in the layout, so the row doesn't reflow
+    clear.disabled = !filters.length;
+    if (view === "list") renderList(o); else drawMap();
+    saveHash();
+  }
+
+  // A search inside a guide looks only in that guide, and the app opens on one: a first visit that types a well-known place from
+  // elsewhere would find nothing. When a guide search lists none or only a few, offer the same search and filters in All restaurants,
+  // with its count. (Worded by the list's name, so the button makes no claim about how complete the list is.)
+  const FEW = 5;
+  function elsewhere() {
+    const q = parse(st.q);
+    if (st.g === "all" || qEmpty(q) || current.length >= FEW) return 0;
+    const n = P.filter((p) => !p.v && allows(p) && matches(p, q)).length;   // what All restaurants will list (list() with g = "all")
+    return n > current.length ? n : 0;
+  }
+  function widen() {
+    st.g = "all"; st.sort = ""; shown = 100; render();
+    showChip();
+    $(".ex-row")?.focus();
+  }
+  const widenButton = (n) => `<button type="button" class="ex-small ex-widen" id="ex-widen">See ${esc(n.toLocaleString())} ${n === 1 ? "match" : "matches"} in All restaurants</button>`;
+
+  function renderList(o) {
+    const ol = $("#ex-list");
+    const g = GUIDES[st.g];
+    const more = elsewhere();
+    const scope = st.g === "saved" ? "your saved places" : `the ${g.title} guide`;
+    if (!current.length) {
+      ol.innerHTML = `<li class="ex-empty">${more ? `No place in ${esc(scope)} matches that. ${widenButton(more)}`
+        : st.g === "saved" && !saved.size ? "Nothing saved yet. Open a place and tap Save to keep it here, in this browser."
+        : st.g === "all" || st.g === "saved" || st.q.trim() ? "No places match. Try fewer words or clear the filters."
+        : "No places in this guide match. Try All restaurants or clear the filters."}</li>`;
+      if (more) $("#ex-widen").onclick = widen;
+      $("#ex-more").hidden = true;
+      return;
+    }
+    ol.innerHTML = current.slice(0, shown).map((p, i) => {
+      const m = metric(p, o);
+      const rank = g.ranked ? `<span class="ex-rank${i < 3 ? " top" : ""}"><span class="vh">Rank </span>${i + 1}</span>` : "";
+      const where = [p.c, p.cu].filter(Boolean).join(" · ");
+      return `<li><button type="button" class="ex-row" data-i="${esc(p.i)}">${rank}<span class="ex-main"><b>${esc(p.n)}</b><span class="ex-town">${esc(where)}</span><span class="ex-chips">${chips(p, 4)}</span></span>${m ? `<span class="ex-metric"><b>${esc(m[0])}</b><small>${esc(m[1])}</small></span>` : ""}</button></li>`;
+    }).join("") + (more ? `<li class="ex-empty ex-few">Only ${current.length === 1 ? "one" : esc(current.length)} in ${esc(scope)}. ${widenButton(more)}</li>` : "");
+    if (more) $("#ex-widen").onclick = widen;
+    const left = current.length - shown;
+    $("#ex-more").hidden = left <= 0;
+    $("#ex-more").textContent = `Show more (${left.toLocaleString()} left)`;
+  }
+
+  // ---------------------------------------------------------------- place panel
+  const JUR = { 1: "Idaho State Police alcohol licenses (Alcohol Beverage Control)" };
+  const TIER = { 2: "On an official record", 1: "Confirmed listing", 0: "Listing only" };
+
+  // the share of listings like this one that matched a licensed business in a test against Denver's full food-license list
+  // (same Overture release): Idaho has no public food-license list to test against
+  function rate(p) {
+    if (p.t === 2) return null;   // an official record confirms it; no listing rate needed
+    const src = SOURCES[p.s] || "meta";
+    const group = src === "meta" ? (p.t === 1 ? "meta_high" : "meta_mid") : (src === "AllThePlaces" || src === "DAC") ? "brand_feed" : null;
+    const v = group && CAL?.reference_colorado_denver?.groups?.[group]?.official;
+    return typeof v === "number" ? `${Math.round(v * 100)}%` : null;
+  }
+
+  function howWeKnow(p) {
+    const src = SOURCES[p.s] || "meta";
+    if (src === "research") return `On our hand-checked list (checked in ${CHECKED} against a 2025 or 2026 source). The open map data didn't list it as a place to eat, so it's placed from its own map listing or street address.`;
+    if (p.t === 2) return src === "official"
+      ? `From the ${JUR[p.j] || "official records"}. The open map data didn't have it, so its location comes from the record's street address.`
+      : `Matched to the ${JUR[p.j] || "official records"}.`;
+    const r = rate(p);
+    return (p.t === 1 ? "A high-confidence listing in Overture's open map data." : "A single listing in Overture's open map data, so it may be closed or misfiled.")
+      + (r ? ` In a test against Denver's full list of food licenses (Colorado, same map data), listings like this matched a licensed business ${r} of the time.` : "")
+      + (p.hc ? ` It's also on our hand-checked list, checked in ${CHECKED} against a 2025 or 2026 source.` : "");
+  }
+
+  function servesAlcohol(d, lics) {
+    if (d.liq) return `Yes · ${d.liq}`;
+    if (lics.length) return "Beer or wine to go only (store license)";
+    return "Unknown (no on-premises alcohol license matched)";
+  }
+
+  const kv = (k, v) => (v == null || v === "" ? "" : `<div class="ex-kv"><span>${esc(k)}</span><b>${esc(v)}</b></div>`);
+  const section = (t, body) => `<section class="ex-sec"><h3>${esc(t)}</h3>${body}</section>`;
+  const phone = matchMedia("(max-width: 600px)");
+  let listAtPush = null;   // the list's URL state when a place was opened with pushState (Back then closes the panel)
+
+  // the panel is a modal dialog at every width (a bottom sheet on phones; on wider screens a side panel over the List, Map and
+  // Near me controls), so everything behind it is inert while it's open; Close, Escape and Back close it
+  function panelMode() {
+    const panel = $("#ex-panel"), modal = !panel.hidden;
+    if (modal) { panel.setAttribute("role", "dialog"); panel.setAttribute("aria-modal", "true"); }
+    else { panel.removeAttribute("role"); panel.removeAttribute("aria-modal"); }
+    const scrim = $("#ex-scrim");
+    if (scrim) scrim.hidden = !modal;   // dims the page behind; a click on it closes the panel
+    const behind = [...document.querySelectorAll("body > .skip, .wrap > header, .wrap > .ridge, .wrap > nav, .wrap > footer, #main > *")].filter((el) => el !== panel && el !== scrim);
+    behind.forEach((el) => { el.inert = modal; });
+  }
+
+  function openPlace(p, push = true) {
+    const panel = $("#ex-panel");
+    const wasOpen = !panel.hidden;
+    st.p = p.id;
+    const d = (D && D[p.i]) || {};
+    const la = num(p.la), lo = num(p.lo);
+    const addr = [p.a, [p.c, p.z].filter(Boolean).join(" ")].filter(Boolean).join(", ");
+    const apple = la != null && lo != null
+      ? `https://maps.apple.com/?q=${encodeURIComponent(p.n)}&ll=${la},${lo}`
+      : `https://maps.apple.com/?q=${encodeURIComponent(p.n + ", " + addr + ", Idaho")}`;
+    const dirs = la != null && lo != null ? `https://maps.apple.com/?daddr=${la},${lo}&dirflg=d` : apple;
+    const site = safeUrl(d.w), tel = telHref(d.ph);
+    const county = p.co && p.co !== p.c ? p.co : "";
+    let html = `<button type="button" class="ex-close" id="ex-close" aria-label="Close">×</button>
+      <p class="ex-kicker">${esc([(p.c || "Idaho").toUpperCase(), county.toUpperCase()].filter(Boolean).join(" · "))}</p>
+      <h2 id="ex-pname">${esc(p.n)}</h2>
+      <p class="ex-addr">${esc([addr, p.cu].filter(Boolean).join(" · "))}</p>
+      ${here && la != null ? `<p class="ex-dist">${esc(milesText(miles(here, p)))} away</p>` : ""}
+      <p class="ex-chips">${chips(p)}</p>
+      <div class="ex-actions">
+        <a class="btn ex-apple" href="${esc(apple)}" rel="noopener" target="_blank">Ratings, hours &amp; photos · Apple Maps</a>
+        <div class="ex-act-row">
+          <a href="${esc(dirs)}" rel="noopener" target="_blank">Directions</a>
+          ${tel ? `<a href="${esc(tel)}">Call</a>` : ""}
+          ${site ? `<a href="${esc(site)}" rel="noopener nofollow" target="_blank">Website</a>` : ""}
+          <button type="button" id="ex-save" aria-pressed="${saved.has(p.id)}">${saved.has(p.id) ? "Saved" : "Save"}</button>
+        </div>
+      </div>`;
+    if (!D) html += `<p class="ex-fine" id="ex-more-loading">Loading details…</p>`;
+    if (p.hc && (d.note || d.dish || p.f || d.seas)) {
+      html += section("Hand-checked", (d.note ? `<p>${esc(d.note)}</p>` : "") + kv("On the menu", d.dish ? String(d.dish).split("; ").join(", ") : "")
+        + kv("Open here since", p.f) + (p.f && d.fn ? `<p class="ex-fine">${esc(d.fn)}</p>` : "") + kv("Season", d.seas)
+        + `<p class="ex-fine">Checked by hand in ${esc(CHECKED)} against a 2025 or 2026 source: the place's own site or menu, or local news. Menus and seasons change, and resort-town places close between seasons, so check before you go.</p>`);
+    }
+    if (d.jbf) {
+      const lines = String(d.jbf).split("; ").filter(Boolean).map((x) => "James Beard: " + x);
+      html += section("Honors", `<ul>${lines.map((l) => `<li>${esc(l)}</li>`).join("")}</ul><p class="ex-fine">Honors are facts, not ratings. James Beard Foundation and James Beard Award are trademarks of the James Beard Foundation.</p>`);
+    }
+    // Idaho publishes no inspection results in bulk: say so, and point to the district that inspects this place
+    const dist = DISTRICT_OF.get(p.co || "");
+    html += section("Health inspections", `<p>Idaho's public health districts inspect restaurants about once a year, but none publishes results in bulk or issues a grade, so there are no inspection results here.</p>`
+      + (dist ? (safeUrl(dist.url) ? `<p><a href="${esc(safeUrl(dist.url))}" rel="noopener" target="_blank">${esc(dist.name)}: food inspections</a></p>` : `<p>${esc(dist.name)} has no online inspection lookup.</p>`) : "")
+      + `<p><a href="${esc(INS_PAGE)}">How to look up an Idaho restaurant inspection</a></p>`);
+    const lics = Array.isArray(d.lic) ? d.lic : [];
+    if (ABC > 0) {
+      // a past expiry date reads like a lapsed license, so only a date on or after the list's own date is shown
+      const lic = lics.map((l) => kv(l.src, [l.type, l.id, l.exp && LIQ_DATE && String(l.exp) >= String(LIQ_DATE) && "expires " + fmtDate(l.exp)].filter(Boolean).join(" · "))).join("");
+      html += section("Official records", lic + kv("Serves alcohol", servesAlcohol(d, lics))
+        + `<p class="ex-fine">${lics.length ? `From Idaho State Police's alcohol license list${LIQ_DATE ? " (as of " + esc(fmtDate(LIQ_DATE)) + ")" : ""}.` : "No Idaho State Police alcohol license matched this place. Idaho has no public list of food licenses, so a missing record means unknown, not unlicensed."}</p>`);
+    }
+    html += section("How we know it's here", kv("Listed as", TIER[p.t]) + (p.t === 2 ? kv("Official record", JUR[p.j]) : "")
+      + (p.ch >= 2 ? kv("Locations in Idaho", p.ch.toLocaleString()) : "") + `<p class="ex-fine">${esc(howWeKnow(p))}</p>`);
+    const storeUrl = safeUrl(APP.dataset.store);   // set by scripts/make-site.py once the App Store listing exists
+    html += storeUrl
+      ? `<p class="ex-app">Save it on your phone: <a href="${esc(storeUrl)}" rel="noopener">get the free iPhone app</a></p>`
+      : `<p class="ex-app">The iPhone app is coming soon. <a href="${BASE}/#download">Get early access</a></p>`;
+    panel.innerHTML = html;
+    panel.dataset.id = p.id;
+    panel.hidden = false;
+    document.body.classList.add("ex-open");
+    panelMode();
+    $("#ex-close").onclick = () => closePlace();
+    $("#ex-save").onclick = (e) => {
+      if (saved.has(p.id)) saved.delete(p.id); else saved.add(p.id);
+      store.set("saved", [...saved]);
+      e.target.textContent = saved.has(p.id) ? "Saved" : "Save";
+      e.target.setAttribute("aria-pressed", String(saved.has(p.id)));
+      if (st.g === "saved") render();
+    };
+    panel.scrollTop = 0;
+    $("#ex-close").focus();
+    if (push) {
+      if (wasOpen) saveHash();            // one Back step per panel, not per place looked at
+      else { listAtPush = listHash(); saveHash(true); }
+    }
+    if (!D) loadDetail().then(() => { if (st.p === p.id && !panel.hidden) openPlace(p, false); });   // details load on the first open only
+  }
+
+  // fromHistory: the Back button (or a hash link) already moved the URL, so don't touch history again
+  function closePlace(fromHistory = false) {
+    const was = st.p;
+    st.p = "";
+    const panel = $("#ex-panel");
+    panel.hidden = true;
+    delete panel.dataset.id;
+    document.body.classList.remove("ex-open");
+    panelMode();
+    if (!fromHistory) {
+      // the list hasn't changed since the panel opened: step back over the entry openPlace pushed, so Back isn't a dead click
+      if (history.state && history.state.ideats === "place" && listHash() === listAtPush) history.back();
+      else saveHash();
+    }
+    listAtPush = null;
+    const row = was && document.querySelector(`.ex-row[data-i="${P.findIndex((p) => p.id === was)}"]`);
+    if (row) row.focus();
+  }
+
+  // ---------------------------------------------------------------- map (canvas: county outlines + a dot per place)
+  // Idaho is tall and narrow (about 0.62 wide for its height): lon -117.25..-111.04, lat 41.99..49.0
+  let SHAPES = null, cam = null;
+  const LAT0 = 45.5, KX = Math.cos(LAT0 * Math.PI / 180);
+  const proj = (lo, la) => [(lo + 114.15) * KX, -(la - LAT0)];
+
+  function fitCam(w, h) {
+    const [x0, y0] = proj(-117.25, 49.0), [x1, y1] = proj(-111.04, 41.99);
+    const k = Math.min(w / (x1 - x0), h / (y1 - y0)) * 0.95;
+    return { k, x: (w - (x1 - x0) * k) / 2 - x0 * k, y: (h - (y1 - y0) * k) / 2 - y0 * k };
+  }
+
+  // calls f on every ring, however deeply it's nested (the state is [polygon[ring[point]]], each county [ring[point]])
+  const eachRing = (g, f) => {
+    if (!Array.isArray(g) || !g.length) return;
+    if (Array.isArray(g[0]) && typeof g[0][0] === "number") f(g); else g.forEach((x) => eachRing(x, f));
+  };
+
+  async function drawMap() {
+    const cv = $("#ex-map"), wrap = $("#ex-mapwrap");
+    const w = wrap.clientWidth, h = wrap.clientHeight, dpr = window.devicePixelRatio || 1;
+    if (cv.width !== Math.round(w * dpr) || cv.height !== Math.round(h * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+    if (!cam) cam = fitCam(w, h);
+    if (!SHAPES) SHAPES = await fetchJSON(`${BASE}/data/id_shapes.json`).catch(() => ({ state: [], counties: [] }));
+    const css = getComputedStyle(document.documentElement), tok = (n, d) => css.getPropertyValue(n).trim() || d;   // light or dark
+    const c = cv.getContext("2d");
+    c.setTransform(dpr, 0, 0, dpr, 0, 0);
+    c.clearRect(0, 0, w, h);
+    const X = (lo, la) => { const [x, y] = proj(lo, la); return [x * cam.k + cam.x, y * cam.k + cam.y]; };
+    const ring = (r) => { r.forEach(([lo, la], i) => { const [x, y] = X(lo, la); i ? c.lineTo(x, y) : c.moveTo(x, y); }); c.closePath(); };
+    c.fillStyle = tok("--land", "#fff");
+    c.beginPath(); eachRing(SHAPES.state, ring); c.fill("evenodd");
+    c.strokeStyle = tok("--county", "rgba(94,86,104,.35)"); c.lineWidth = 0.8;
+    for (const co of SHAPES.counties || []) { c.beginPath(); eachRing(co.c, ring); c.stroke(); }
+    const pts = current.filter((p) => p.la != null);
+    const r = Math.max(2.2, Math.min(5, 1.6 + cam.k / 120));
+    // drawn in three passes so the hand-checked picks (russet) and James Beard honorees (pine) sit on top of the plain dots
+    const kind = (p) => (p.h & 15 || p.jb ? 2 : p.hc && p.g & GUIDE_TAGS ? 1 : 0);
+    for (const pass of [0, 1, 2]) {
+      c.fillStyle = pass === 2 ? tok("--pin-honor", "#2e5a4c") : pass === 1 ? tok("--pin-pick", "#c9a06b") : tok("--dot", "#4b2a5c");
+      c.strokeStyle = tok("--pin-edge", "#1f1a24"); c.lineWidth = 1;
+      for (const p of pts) {
+        if (kind(p) !== pass) continue;
+        const [x, y] = X(p.lo, p.la);
+        if (x < -5 || y < -5 || x > w + 5 || y > h + 5) continue;
+        c.beginPath(); c.arc(x, y, pass ? r + 1 : r, 0, 6.2832); c.fill(); if (pass) c.stroke();
+      }
+    }
+    $("#ex-maphint").textContent = pts.length ? `${pts.length.toLocaleString()} ${pts.length === 1 ? "place" : "places"} · tap a dot` : "No places to show";
+  }
+
+  function nearestDot(px, py) {
+    let best = null, bd = 14 * 14;
+    for (const p of current) {
+      if (p.la == null) continue;
+      const [x0, y0] = proj(p.lo, p.la), x = x0 * cam.k + cam.x, y = y0 * cam.k + cam.y;
+      const d = (x - px) ** 2 + (y - py) ** 2;
+      if (d < bd) { bd = d; best = p; }
+    }
+    return best;
+  }
+
+  function zoomAt(f, px, py) {
+    const k = Math.min(Math.max(cam.k * f, 30), 60000);
+    const s = k / cam.k;
+    cam = { k, x: px - (px - cam.x) * s, y: py - (py - cam.y) * s };
+    drawMap();
+  }
+
+  function mapEvents() {
+    const cv = $("#ex-map");
+    const ptrs = new Map();
+    let moved = false, pinch0 = null;
+    cv.addEventListener("wheel", (e) => { e.preventDefault(); const b = cv.getBoundingClientRect(); zoomAt(e.deltaY < 0 ? 1.25 : 0.8, e.clientX - b.left, e.clientY - b.top); }, { passive: false });
+    cv.addEventListener("pointerdown", (e) => { loadDetail(); cv.setPointerCapture(e.pointerId); ptrs.set(e.pointerId, [e.clientX, e.clientY]); moved = false; pinch0 = null; });
+    cv.addEventListener("pointermove", (e) => {
+      if (!ptrs.has(e.pointerId)) return;
+      const prev = ptrs.get(e.pointerId);
+      ptrs.set(e.pointerId, [e.clientX, e.clientY]);
+      if (ptrs.size === 2) {
+        const [a, b] = [...ptrs.values()], d = Math.hypot(a[0] - b[0], a[1] - b[1]);
+        const r = cv.getBoundingClientRect();
+        if (pinch0) zoomAt(d / pinch0, (a[0] + b[0]) / 2 - r.left, (a[1] + b[1]) / 2 - r.top);
+        pinch0 = d; moved = true; return;
+      }
+      const dx = e.clientX - prev[0], dy = e.clientY - prev[1];
+      if (Math.abs(dx) + Math.abs(dy) > 2) moved = true;
+      cam.x += dx; cam.y += dy; drawMap();
+    });
+    const up = (e) => {
+      ptrs.delete(e.pointerId);
+      if (!moved && ptrs.size === 0) {
+        const b = cv.getBoundingClientRect(), p = nearestDot(e.clientX - b.left, e.clientY - b.top);
+        if (p) openPlace(p);
+      }
+      if (ptrs.size < 2) pinch0 = null;
+    };
+    cv.addEventListener("pointerup", up);
+    cv.addEventListener("pointercancel", (e) => ptrs.delete(e.pointerId));
+    $("#ex-zin").onclick = () => zoomAt(1.6, cv.clientWidth / 2, cv.clientHeight / 2);
+    $("#ex-zout").onclick = () => zoomAt(0.625, cv.clientWidth / 2, cv.clientHeight / 2);
+    window.addEventListener("resize", () => { if (view === "map") drawMap(); });
+    matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => { if (view === "map") drawMap(); });
+  }
+
+  function centerOn(pt) {
+    const cv = $("#ex-map"), w = cv.clientWidth, h = cv.clientHeight;
+    const k = 4000, [x, y] = proj(pt.lo, pt.la);
+    cam = { k, x: w / 2 - x * k, y: h / 2 - y * k };
+  }
+
+  // ---------------------------------------------------------------- data, URL state, controls
+  let SOURCES = [];
+  async function fetchJSON(url) { const r = await fetch(url); if (!r.ok) throw new Error(r.status + " " + url); return r.json(); }
+  let detailPromise = null;
+  // detail.json (phones, sites, notes, honors, licenses) is fetched only once someone reaches for a place
+  function loadDetail() {
+    detailPromise ||= fetchJSON(`${BASE}/data/detail.json`).then((d) => { D = Array.isArray(d) ? d : []; }).catch(() => { D = []; });
+    return detailPromise;
+  }
+
+  async function load() {
+    const d = await fetchJSON(`${BASE}/data/core.json`);
+    GENERATED = d.generated || ""; CAL = d.calibration || {}; SOURCES = d.srcs || []; CHECKED = d.checked || "2026";
+    ABC = num(d.abc_licenses) || 0; LIQ_DATE = d.liquor_updated || "";
+    INS_PAGE = BASE + "/" + String(d.inspections_page || "");
+    DISTRICT_OF = new Map();
+    for (const x of Array.isArray(d.districts) ? d.districts : []) for (const co of x.counties || []) DISTRICT_OF.set(co, x);
+    const C = d.cols, n = C.id.length, towns = new Map();
+    P = new Array(n);
+    TOWN_KEYS = new Map();
+    for (let i = 0; i < n; i++) {
+      const city = C.c[i] == null ? null : d.cities[C.c[i]], cu = d.cuisines[C.cu[i]], brand = C.b[i] == null ? null : d.brands[C.b[i]];
+      const county = C.co[i] == null ? null : d.counties[C.co[i]];
+      const p = { i, id: String(C.id[i]), n: String(C.n[i] ?? ""), c: city, co: county, cu, t: C.t[i], s: C.s[i], a: C.a[i], z: C.z[i], la: C.la[i], lo: C.lo[i],
+        ch: num(C.ch[i]) || 1, v: C.v[i] === 1, g: C.g[i] || 0, hc: C.hc[i] === 1, ip: num(C.ip[i]), f: num(C.f[i]), h: C.h[i] || 0, j: C.j[i],
+        jb: C.jb[i] === 1, dish: C.dish[i] };
+      p.search = " " + normalize([p.n, city, county, p.z, cu, brand, p.dish].filter(Boolean).join(" ")) + " " + normAddr(p.a || "") + " ";
+      p.nameText = " " + normalize([p.n, brand].filter(Boolean).join(" ")) + " ";
+      p.key = normalize(p.n);   // the app's A-to-Z key: case, accents and leading punctuation don't change the order
+      P[i] = p;
+      if (city && !p.v) towns.set(city, (towns.get(city) || 0) + 1);
+    }
+    const byCount = [...towns.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    for (const [name] of byCount) { const k = normAddr(name); if (!TOWN_KEYS.has(k)) TOWN_KEYS.set(k, name); }   // biggest town wins a shared spelling
+    TOWN_KEYS_BY_LENGTH = [...TOWN_KEYS.keys()].sort((a, b) => b.length - a.length);
+    $("#ex-town").innerHTML = '<option value="">All towns</option>' + [...towns.keys()].sort((a, b) => a.localeCompare(b)).map((t) => `<option>${esc(t)}</option>`).join("");
+    const cuis = new Map();
+    for (const p of P) if (!p.v) cuis.set(p.cu, (cuis.get(p.cu) || 0) + 1);
+    $("#ex-cuisine").innerHTML = '<option value="">All kinds</option>' + [...cuis.entries()].sort((a, b) => b[1] - a[1]).map(([c, k]) => `<option value="${esc(c)}">${esc(c)} (${esc(k.toLocaleString())})</option>`).join("");
+  }
+
+  // a guide button exists only for a guide with places (scripts/make-site.py leaves out an empty one, as the app's Home does)
+  const guideOk = (g) => own(GUIDES, g) && (g === "saved" || g === "all" || Boolean(document.querySelector(`.ex-guides button[data-g="${g}"]`)));
+  function readHash() {
+    const h = new URLSearchParams(location.hash.slice(1));
+    const last = store.get("guide", DEFAULT_GUIDE);
+    // a returning visitor gets the guide they used last, unless it's an empty Saved list
+    st.g = guideOk(h.get("g")) ? h.get("g") : guideOk(last) && !(last === "saved" && !saved.size) ? last : DEFAULT_GUIDE;
+    st.q = h.get("q") || ""; st.town = h.get("town") || ""; st.cuisine = h.get("kind") || ""; st.chains = h.get("chains") === "1";
+    st.sort = h.get("sort") || ""; st.p = h.get("p") || "";
+  }
+  function hashOf(withPlace) {
+    const h = new URLSearchParams();
+    h.set("g", st.g);
+    if (st.q) h.set("q", st.q); if (st.town) h.set("town", st.town); if (st.cuisine) h.set("kind", st.cuisine);
+    if (st.chains) h.set("chains", "1"); if (st.sort) h.set("sort", st.sort); if (withPlace && st.p) h.set("p", st.p);
+    return "#" + h.toString();
+  }
+  const listHash = () => hashOf(false);
+  // filter changes replace the current history entry; opening a place pushes one, so Back closes the panel
+  function saveHash(push = false) {
+    const url = hashOf(true);
+    if (push) history.pushState({ ideats: "place" }, "", url);
+    else history.replaceState(st.p ? { ideats: "place" } : null, "", url);
+    store.set("guide", st.g);
+  }
+
+  function locate() {
+    if (!navigator.geolocation) { $("#ex-locmsg").textContent = "This browser can't share its location."; return; }
+    $("#ex-locmsg").textContent = "Finding you…";
+    navigator.geolocation.getCurrentPosition((pos) => {
+      here = { la: pos.coords.latitude, lo: pos.coords.longitude };
+      const away = !inIdaho(here);   // the app's wording (GuideListView.swift); the map stays on Idaho rather than an empty spot
+      $("#ex-locmsg").textContent = away
+        ? "You're outside Idaho. Every place here is in Idaho, so distances are from where you are now. Your location stays in this browser."
+        : "Sorted by distance from you. Your location stays in this browser.";
+      $("#ex-locmsg").classList.toggle("ex-away", away);
+      st.sort = GUIDES[st.g].sorts.includes("nearest") ? "nearest" : st.sort;
+      if (view === "map" && !away) centerOn(here);
+      shown = 100; render();
+    }, () => { $("#ex-locmsg").textContent = "Location is off for this site. Allow it in your browser settings to sort by distance."; },
+    { enableHighAccuracy: false, timeout: 10000, maximumAge: 0 });   // a fresh fix on every tap: an earlier one can be miles off
+  }
+
+  function setView(v) {
+    view = v;
+    document.querySelectorAll(".ex-view button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.v === v)));
+    $("#ex-listwrap").hidden = v !== "list";
+    $("#ex-mapwrap").hidden = v !== "map";
+    render();
+    if (v === "map" && phone.matches) $("#ex-mapwrap").scrollIntoView({ block: "nearest" });   // on phones the map starts below the fold
+  }
+
+  // the URL moved under us: Back/Forward (popstate) or a link to another #hash (hashchange). Both can fire for one step.
+  function fromURL() {
+    const before = listHash();
+    readHash();
+    if (listHash() !== before) { syncInputs(); shown = 100; render(); }
+    const p = st.p && P.find((x) => x.id === st.p);
+    const panel = $("#ex-panel");
+    if (p) {
+      if (panel.hidden || panel.dataset.id !== p.id) openPlace(p, false);
+      // Forward onto an entry openPlace pushed: closing steps back over it again, so the next Back isn't a dead click
+      if (history.state && history.state.ideats === "place" && listAtPush == null) listAtPush = listHash();
+    }
+    else if (!panel.hidden) closePlace(true);
+  }
+
+  function controls() {
+    document.querySelectorAll(".ex-guides button").forEach((b) => b.onclick = () => { if (guideOk(b.dataset.g)) st.g = b.dataset.g; st.sort = ""; shown = 100; render(); });
+    let t = null;
+    $("#ex-q").addEventListener("input", (e) => { clearTimeout(t); t = setTimeout(() => { st.q = e.target.value; shown = 100; render(); }, 120); });
+    $("#ex-sort").onchange = (e) => { st.sort = e.target.value; if (st.sort === "nearest" && !here) locate(); shown = 100; render(); };
+    $("#ex-town").onchange = (e) => { st.town = e.target.value; shown = 100; render(); };
+    $("#ex-cuisine").onchange = (e) => { st.cuisine = e.target.value; shown = 100; render(); };
+    $("#ex-chains").onchange = (e) => { st.chains = e.target.checked; shown = 100; render(); };
+    $("#ex-clear").onclick = () => { st.town = st.cuisine = ""; st.chains = false; syncInputs(); shown = 100; render(); };
+    $("#ex-locate").onclick = locate;
+    if ($("#ex-scrim")) $("#ex-scrim").onclick = () => closePlace();
+    $("#ex-more").onclick = () => { shown += 200; renderList(order()); };
+    document.querySelectorAll(".ex-view button").forEach((b) => b.onclick = () => setView(b.dataset.v));
+    $("#ex-list").addEventListener("click", (e) => { const b = e.target.closest(".ex-row"); if (b && P[+b.dataset.i]) openPlace(P[+b.dataset.i]); });
+    for (const ev of ["pointerover", "focusin"]) $("#ex-list").addEventListener(ev, () => loadDetail(), { once: true });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape" && st.p) closePlace(); });
+    window.addEventListener("popstate", fromURL);
+    window.addEventListener("hashchange", fromURL);
+    phone.addEventListener?.("change", panelMode);
+    mapEvents();
+  }
+  function syncInputs() {
+    $("#ex-q").value = st.q; $("#ex-town").value = st.town; $("#ex-cuisine").value = st.cuisine; $("#ex-chains").checked = st.chains;
+  }
+
+  async function start() {
+    const box = $("#ex-loading");
+    box.hidden = false;
+    box.textContent = "Loading the restaurant list…";
+    try { await load(); } catch {
+      box.innerHTML = 'The restaurant list couldn’t load. Check your connection, then <button type="button" class="ex-linkbtn" id="ex-retry">try again</button>';
+      $("#ex-retry").onclick = start;
+      return;
+    }
+    document.querySelectorAll("#ex-app [disabled]").forEach((el) => { el.disabled = false; });
+    syncInputs();
+    if (!wired) { controls(); wired = true; }
+    box.hidden = true;
+    render();
+    const open = st.p && P.find((p) => p.id === st.p);
+    if (open) { await loadDetail(); openPlace(open, false); }
+  }
+
+  // on a phone the guide chips scroll sideways (their right edge fades out over 32px): bring the current guide's chip into view
+  function showChip() {
+    const chip = document.querySelector(`.ex-guides button[data-g="${st.g}"]`), row = $(".ex-guides");
+    if (!chip || !row) return;
+    const c = chip.getBoundingClientRect(), r = row.getBoundingClientRect();
+    if (c.right > r.right - 32 || c.left < r.left) row.scrollLeft += c.left - r.left - 16;
+  }
+
+  readHash();
+  preRender();
+  showChip();
+  start();
+})();
+
+</script>
+  <footer>
+    <nav aria-label="Footer">
+      <a href="/idaho-eats/">Idaho Eats app</a>
+      <a href="/idaho-eats/explore/">Search Idaho restaurants</a>
+      <a href="/idaho-eats/idaho-basque-restaurants.html">Basque restaurants</a>
+      <a href="/idaho-eats/idaho-finger-steaks-drive-ins.html">Finger steaks &amp; drive-ins</a>
+      <a href="/idaho-eats/idaho-spud-plates.html">Spud plates</a>
+      <a href="/idaho-eats/idaho-huckleberry.html">Huckleberry: where to eat it</a>
+      <a href="/idaho-eats/idaho-trout-restaurants.html">Trout restaurants</a>
+      <a href="/idaho-eats/idaho-taquerias.html">Taquerías</a>
+      <a href="/idaho-eats/idaho-historic-saloons.html">Historic saloons &amp; supper clubs</a>
+      <a href="/idaho-eats/idaho-james-beard-restaurants.html">James Beard honorees</a>
+      <a href="/idaho-eats/idaho-oldest-restaurants.html">Oldest restaurants</a>
+      <a href="/idaho-eats/idaho-restaurant-inspections.html">Restaurant inspections</a>
+      <a href="/idaho-eats/cities/">Cities and regions</a>
+      <a href="/idaho-eats/about.html">About and sources</a>
+      <a href="/idaho-eats/privacy.html">Privacy policy</a>
+      <a href="/idaho-eats/terms.html">Terms of use</a>
+      <a href="mailto:nick@eatsranked.com">Email us</a>
+    </nav>
+    <p>Place data: hand-checked research by Idaho Eats (October 2026); Overture Maps Foundation places data (CDLA Permissive 2.0), including data from Foursquare (Apache 2.0) and AllThePlaces (CC0 1.0), and Overture addresses; county outlines © OpenStreetMap contributors and Overture Maps Foundation (ODbL). Restaurant data as of October 9, 2026. Not affiliated with or endorsed by any restaurant, team, chain, university or government agency, or the James Beard Foundation. James Beard Foundation and James Beard Award are trademarks of the James Beard Foundation. Places open and close, so check before you go.</p>
+    <p>© 2026 Idaho Eats, an independent app by Nicholas Soderstrom. Part of <a href="https://eatsranked.com/" rel="noopener">Eats Ranked</a>, restaurant apps state by state.</p>
+  </footer>
+</div>
+</body>
+</html>

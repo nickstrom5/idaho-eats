@@ -1,0 +1,76 @@
+name: IdahoEats
+options:
+  bundleIdPrefix: com.idahoeats
+  deploymentTarget:
+    iOS: "18.0"
+  xcodeVersion: "16.0"
+  createIntermediateGroups: true
+  generateEmptyDirectories: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: "4C8TU6U7MQ"
+    CODE_SIGN_STYLE: Automatic
+    TARGETED_DEVICE_FAMILY: "1,2"  # iPhone and iPad
+    SWIFT_STRICT_CONCURRENCY: minimal
+
+targets:
+  IdahoEats:
+    type: application
+    platform: iOS
+    sources:
+      - path: IdahoEats
+    info:
+      path: IdahoEats/Info.plist
+      properties:
+        CFBundleDisplayName: Idaho Eats
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        UILaunchScreen:
+          UIColorName: LaunchBackground
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UIRequiresFullScreen: false
+        UIUserInterfaceStyle: Light      # the palette is light-only (Design/Theme.swift); dark mode made lists unreadable
+        NSLocationWhenInUseUsageDescription: "Your location sorts restaurants, drive-ins and Basque bars by distance and shows where you are on the map. It stays on your device."
+        ITSAppUsesNonExemptEncryption: false
+        LSApplicationQueriesSchemes: [maps]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.idahoeats.ios
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+    scheme:
+      testTargets: [IdahoEatsTests, IdahoEatsUITests]
+
+  IdahoEatsTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: IdahoEatsTests
+    dependencies:
+      - target: IdahoEats
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.idahoeats.ios.tests
+        GENERATE_INFOPLIST_FILE: true
+
+  IdahoEatsUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: IdahoEatsUITests
+    dependencies:
+      - target: IdahoEats
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.idahoeats.ios.uitests
+        GENERATE_INFOPLIST_FILE: true
+        TEST_TARGET_NAME: IdahoEats

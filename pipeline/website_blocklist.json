@@ -1,0 +1,38 @@
+[
+  {
+    "domain": "goodyssodafountain.com",
+    "match": "domain",
+    "place": "Goody's Soda Fountain (Boise)",
+    "reason": "hacked: six off-screen blocks (left: -7566px) link casino sites (casinotest2.com, hiddenjack.site, olimpbet-casino.kz) with Dutch and Russian copy",
+    "severity": "P0",
+    "evidence": "$SP/work/link-scan/evidence/id/goodyssodafountain_com.html",
+    "found": "2026-10-12"
+  },
+  {
+    "domain": "missinglinkfoods.com",
+    "match": "domain",
+    "place": "Missing Link Foods (Boise)",
+    "reason": "expired: the host answers 'Website or Domain not Found'",
+    "severity": "P2",
+    "evidence": "$SP/work/link-scan/evidence/id/parked-missinglinkfoods_com.html",
+    "found": "2026-10-12"
+  },
+  {
+    "domain": "go-idaho.com",
+    "match": "domain",
+    "place": "Wagon Wheel Lounge (Lava Hot Springs)",
+    "reason": "a travel-directory listing (https://www.go-idaho.com/Wagon-Wheel-Lounge-Lava-Hot-Springs), not the place's own site",
+    "severity": "P3",
+    "evidence": "$SP/results/link-scan.json (parked_or_wrong, id)",
+    "found": "2026-10-12"
+  },
+  {
+    "domain": "blackfootcandyjar.com",
+    "match": "domain",
+    "place": "Candy Jar (Blackfoot)",
+    "reason": "injected hidden links: hidden blocks: sporty--bet.com \"sportybet\", nv-casino-login.ro, example.uk test links",
+    "severity": "P0",
+    "evidence": "$SP/work/link-scan/evidence/id/blackfootcandyjar.com.html",
+    "found": "2026-10-12"
+  }
+]
