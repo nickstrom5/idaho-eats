@@ -64,7 +64,7 @@ Every place in a guide was checked by hand in fall 2026 against a 2025 or 2026 s
 PRIVATE BY DESIGN
 No account, no tracking, no ads. Your location, if you share it, only sorts lists on your device. Saved places stay on your device.
 
-Places open and close, and resort towns close between seasons, so check before you go. Spot a mistake? Email work-with-nick@gmail.com.
+Places open and close, and resort towns close between seasons, so check before you go. Spot a mistake? Email nick@eatsranked.com.
 
 An independent app, not affiliated with any restaurant, team, university, chain or government agency, or the James Beard Foundation. James Beard Foundation and James Beard Award are trademarks of the James Beard Foundation. Place data from Overture Maps Foundation (CDLA Permissive 2.0) and others; sources and licenses are on the About tab.
 ```

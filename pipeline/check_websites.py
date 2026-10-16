@@ -38,7 +38,7 @@ import requests
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 OUT = f"{ROOT}/data/id/website_check.json"
-UA = "IdahoEatsLinkCheck/1.0 (+https://nickstrom5.github.io/idaho-eats/; work-with-nick@gmail.com)"
+UA = "IdahoEatsLinkCheck/1.0 (+https://nickstrom5.github.io/idaho-eats/; nick@eatsranked.com)"
 RULES = 2          # bump when a rule changes: every cached verdict is checked again
 MAX_AGE = 45       # days a verdict is trusted
 GENERIC = set("""the and of a an at on in restaurant restaurants bar bars grill grille cafe caffe coffee pizza pizzeria pub tavern house

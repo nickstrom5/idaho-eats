@@ -73,6 +73,5 @@ Read `data/id/qa_debug_app.json` after every rebuild (entity rows dropped, merge
 Creating the public repo `nickstrom5/idaho-eats`, pushing, Pages, anything in App Store Connect, uploads, emails, records requests.
 Never submit for review or accept agreements. Public commits: `git -c user.name="Nick Soderstrom" -c user.email="329204362+nickstrom5@users.noreply.github.com" commit`.
 Only `docs/`, the app source and scripts go public: never `data/`, `site/` (Google-derived) or scraped files (see `.gitignore`).
-Contact email: the website shows nick@eatsranked.com (Nick, 2026-10-12; `EMAIL` in scripts/make-site.py, and qa-site.py fails if the old
-address is anywhere in docs/). The app (`IdahoEats/App/Links.swift`), the App Store listing and the playbook still say work-with-nick@gmail.com
-until the next app build.
+Contact email everywhere (site, app About screen, App Store listing, review reply, pipeline user agents): nick@eatsranked.com
+(Nick, 2026-10-12; `EMAIL` in scripts/make-site.py, `Links.supportEmail` in the app; qa-site.py fails if the old Gmail address is anywhere in docs/).

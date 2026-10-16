@@ -50,7 +50,7 @@ Thank you. Here is the information requested.
 
 6. Regulated or protected material: the app is not in a regulated industry and includes no protected third-party material. The data is open-licensed or public, credited on the About tab. Ratings, hours and photos are shown only inside Apple's own place card through MapKit, under Apple's terms; the app stores no ratings or reviews. Idaho's health districts don't publish inspection results in bulk, so the app shows none and links each place's district lookup instead. Honors are stated as facts, with a trademark notice. Website links were checked before release (each must be the restaurant's own page), and strip clubs and other adult venues are excluded by name, address and category. The app is independent and not affiliated with any restaurant, agency or the James Beard Foundation.
 
-Support: work-with-nick@gmail.com
+Support: nick@eatsranked.com
 ```
 When the ABC license list is in the data, add to point 4: "Idaho State Police Alcohol Beverage Control retail license records
 (public records; licensee names not shown)".

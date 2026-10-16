@@ -33,7 +33,7 @@ def qkey(a, c, z):
 todo = [t for t in dict.fromkeys(todo) if qkey(*t) not in cache and qkey(*t) not in misses]
 print("to geocode:", len(todo))
 URL = "https://geocoding.geo.census.gov/geocoder/locations/addressbatch"
-UA = {"User-Agent": "IdahoEatsResearch/1.0 (work-with-nick@gmail.com)"}
+UA = {"User-Agent": "IdahoEatsResearch/1.0 (nick@eatsranked.com)"}
 for start in range(0, len(todo), 2500):
     chunk = todo[start:start + 2500]
     buf = io.StringIO()
