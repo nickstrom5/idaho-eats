@@ -19,6 +19,7 @@ from rapidfuzz import fuzz
 from common import (norm_name, nice, name_sim, cuisine, FOOD_COST, MARGIN, MARGIN_CUISINE, SPEND, GENERIC, _stems, DATA, ID, ROOT,
                     canon_city, town_key, FOODCAT)
 from brands import brand_of
+import link_blocklist
 import official
 from listings_util import official_match, _close_words
 from official import street_key, street_nums
@@ -1497,6 +1498,9 @@ if APP:
         seen_ids.add(p["id"])
         places.append(p)
     print("website links dropped:", sum(link_drops.values()), link_drops.most_common(8), "| empty numbers dropped:", dict(nan_keys))
+    # pipeline/website_blocklist.json: no hacked, taken-over or wrong-business link in any field of the app data (link_blocklist.py)
+    bl_drops = link_blocklist.scrub(places)
+    print("blocklisted links dropped from the app data:", sum(bl_drops.values()), dict(bl_drops))
     json.dump(link_cands, open(f"{ID}/website_candidates.json", "w"), indent=0, ensure_ascii=False)
     # the app ships no Google-derived numbers: only Idaho's license match rates and Colorado's Denver test (both official records)
     _cal = json.load(open(f"{ID}/calibration_app.json"))
