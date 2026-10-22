@@ -20,6 +20,7 @@ from common import (norm_name, nice, name_sim, cuisine, FOOD_COST, MARGIN, MARGI
                     canon_city, town_key, FOODCAT)
 from brands import brand_of
 import link_blocklist
+import tracking_params
 import official
 from listings_util import official_match, _close_words
 from official import street_key, street_nums
@@ -1501,6 +1502,9 @@ if APP:
     # pipeline/website_blocklist.json: no hacked, taken-over or wrong-business link in any field of the app data (link_blocklist.py)
     bl_drops = link_blocklist.scrub(places)
     print("blocklisted links dropped from the app data:", sum(bl_drops.values()), dict(bl_drops))
+    # tracking tags (ref=google, utm_*, cn_channel …) off every outbound link; the store's own parameters stay (tracking_params.py)
+    tp_changes = tracking_params.scrub(places)
+    print("tracking parameters stripped from links:", sum(tp_changes.values()), dict(tp_changes))
     json.dump(link_cands, open(f"{ID}/website_candidates.json", "w"), indent=0, ensure_ascii=False)
     # the app ships no Google-derived numbers: only Idaho's license match rates and Colorado's Denver test (both official records)
     _cal = json.load(open(f"{ID}/calibration_app.json"))

@@ -17,7 +17,7 @@ Polite by design: an honest user agent, one request at a time per host, and thre
 Never bypasses bot protection.
 
 Copied from co-eats/pipeline/check_websites.py (itself from wi-eats).
-Usage: ../.venv/bin/python check_websites.py   (reads data/id/website_candidates.json) → data/id/website_check.json
+Usage: ../.venv/bin/python check_websites.py [--recheck-ok] [--retry-transient]   (reads data/id/website_candidates.json) → data/id/website_check.json
 ({url: {"ok": bool, "why": str, "final": str, "ship": str, "at": "YYYY-MM-DD", "v": RULES}})
 The app export (idaho.py, ID_APP=1) drops every link that isn't ok and ships "ship" (https when the site answers on https).
 A verdict is reused for MAX_AGE days at most, and never across a change of the rules (RULES): a domain can be hijacked after it passed.
@@ -34,12 +34,16 @@ import unicodedata
 import urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 
+import sys
+
 import requests
+
+import injection   # hijacked-page detector, ported from wi-eats (QA 2026-10-19, P1 #4)
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 OUT = f"{ROOT}/data/id/website_check.json"
 UA = "IdahoEatsLinkCheck/1.0 (+https://nickstrom5.github.io/idaho-eats/; nick@eatsranked.com)"
-RULES = 2          # bump when a rule changes: every cached verdict is checked again
+RULES = 3          # bump when a rule changes: every cached verdict is checked again
 MAX_AGE = 45       # days a verdict is trusted
 GENERIC = set("""the and of a an at on in restaurant restaurants bar bars grill grille cafe caffe coffee pizza pizzeria pub tavern house
 inn lounge kitchen bistro eatery diner bakery deli market express food foods co company inc llc ltd corp idaho
@@ -229,9 +233,18 @@ def check(url, ctx):
         return {"ok": False, "why": f"http {r.status_code}", "final": final}
     text = BLOBS.sub(" ", body).lower()
     head = " ".join(a or b for a, b in HEAD.findall(text[:60_000]))
-    casino = CASINO_PLACE.search(name) or CASINO_PLACE.search(urllib.parse.urlparse(final).netloc)
-    if SPAM.search(text) or SPAM.search(final) or (not casino and (BETTING.search(head) or len(BETTING.findall(text)) >= 2)):
+    # a casino by its name or its own host, never by where a (maybe taken-over) domain redirects (wi-eats)
+    casino = CASINO_PLACE.search(name) or CASINO_PLACE.search(host) or injection.CASINO_HOSTS_OK.search(host)
+    if SPAM.search(text) or SPAM.search(final) or (not casino and (BETTING.search(head) or len(injection.BETTING_PROSE.findall(text)) >= 2)):
         return {"ok": False, "why": "gambling or adult content", "final": final}
+    # planted links and spam (casino, betting, adult, pharma, link farms; visible, hidden or off-screen): injection.py
+    reasons = injection.scan(body, host, final, name, casino=bool(casino))
+    if reasons:
+        rule, evidence = reasons[0]
+        return {"ok": False, "why": "hacked: " + rule, "final": final, "evidence": evidence[:300]}
+    pk = injection.parked(body, final)
+    if pk:
+        return {"ok": False, "why": "parked, expired or coming soon", "final": final, "evidence": pk[1][:300]}
     if PARKED.search(text[:60_000]):
         return {"ok": False, "why": "parked, expired or coming soon", "final": final}
     if bad_host(final):
@@ -279,6 +292,17 @@ def save(results, indent=None):
     os.replace(OUT + ".tmp", OUT)
 
 
+
+def safe_check(*item):
+    """check(), stamped with the day it ran ("rc": --recheck-ok skips pages already re-checked in the last 2 days, so a stopped run
+    resumes), and never raising: one malformed page must not stop a run of thousands."""
+    try:
+        res = check(*item)
+    except Exception as e:
+        res = {"ok": False, "why": "error: " + type(e).__name__, "final": item[0]}
+    return {**res, "rc": __import__("datetime").date.today().isoformat()}
+
+
 def main():
     # every link the export considered (written by idaho.py, ID_APP=1), so a link dropped last time gets another chance
     cands = json.load(open(f"{ROOT}/data/id/website_candidates.json"))
@@ -294,6 +318,12 @@ def main():
     prev = {u: v for u, v in prev.items() if not v["why"].startswith(("chain domain", "brand's own"))
             and v["why"] not in ("moved to another domain", "gambling or adult content", "page doesn't show the place's town, address or phone")
             and v.get("v") == RULES and v.get("at", "") >= oldest}
+    if "--recheck-ok" in sys.argv:   # fetch every passing page again (after a new rule, and before each submission); resumable
+        since = (__import__("datetime").date.today() - __import__("datetime").timedelta(days=2)).isoformat()
+        prev = {u: v for u, v in prev.items() if not v["ok"] or v.get("rc", "") >= since}
+    prev = {u: v for u, v in prev.items() if not v["why"].startswith("hacked")}   # injection.py's rules keep growing
+    if "--retry-transient" in sys.argv:   # after a busy run: fetch again what was rate-limited (429) or failed to connect
+        prev = {u: v for u, v in prev.items() if not (v["why"] == "http 429" or v["why"].startswith("error:"))}
     todo, chain_hosts, brand_of = [], {}, {}
     for dom, items in jobs.items():
         uniq = list(dict.fromkeys(items))
@@ -316,7 +346,7 @@ def main():
 
     def run(item):
         nonlocal done
-        res = {**check(*item), "at": TODAY, "v": RULES}
+        res = {**safe_check(*item), "at": TODAY, "v": RULES}
         with lock:
             results[item[0]] = res
             done += 1
@@ -324,7 +354,7 @@ def main():
                 print(f"  {done}/{len(todo)}", flush=True)
                 save(results)
 
-    with ThreadPoolExecutor(max_workers=24) as ex:
+    with ThreadPoolExecutor(max_workers=int(os.environ.get("CHECK_WORKERS") or 0) or 24) as ex:
         list(ex.map(run, todo))
     for dom, urls in chain_hosts.items():
         samples = [results.get(u) for u in urls[:3] if results.get(u)]
