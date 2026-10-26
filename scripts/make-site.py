@@ -54,6 +54,7 @@ AUTHOR = "Nicholas Soderstrom"     # the app's maker; name only in public markup
 PUBLISHED = "2026-10-08"        # the site's first publication (Article datePublished)
 SITE_REV = "2026-10-12"         # the last change to this generator's own copy or code: bump it when you change the words
 POLICY_UPDATED = "2026-10-12"   # privacy policy and terms: bump only when their text changes
+PRIVACY_UPDATED = "2026-10-26"   # the privacy policy alone: the app's data updates (OTA-DATA.md)
 CHECKED = "October 2026"        # when the hand checks behind hc=1 were done, each against a 2025 or 2026 source
 MIN_LIST = 4                    # a statewide list page needs at least this many places (the research is still coming in)
 OG_COUNT = 4000                 # docs/og.png says "4,000+ Idaho restaurants" (scripts/make-brand.swift): re-run it if the count drops
@@ -1993,7 +1994,7 @@ body = f"""{nav}
   <main id="main" class="legal">
   <section class="hero">
     <h1>Privacy policy</h1>
-    <p class="lede">Short version: the {BRAND} app collects nothing about you, and this website doesn't track you. Last updated {hdate(POLICY_UPDATED)}.</p>
+    <p class="lede">Short version: the {BRAND} app collects nothing about you, and this website doesn't track you. Last updated {hdate(PRIVACY_UPDATED)}.</p>
   </section>
   <section>
     <h2>The app</h2>
@@ -2002,6 +2003,7 @@ body = f"""{nav}
       <li><b>Location.</b> If you allow it, your location is used on your device to sort places by distance and show where you are on the map. It is never sent to us. You can turn it off in Settings at any time.</li>
       <li><b>Saved places and filters</b> are stored only on your device and are deleted when you delete the app.</li>
       <li><b>Apple Maps.</b> When you open a place's ratings, hours and photos, or ask for directions, the app asks Apple Maps for that place. Apple handles that request under <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple's privacy policy</a>, as it does for any app that shows a map.</li>
+      <li><b>Data updates.</b> When you open the app, it checks this website for newer restaurant data, at most once a day (or an hour later if a check didn't go through), and downloads it when there is some. These requests carry no location or identifiers. GitHub, which hosts this site, may keep standard server logs of them, as it does for any visit here.</li>
       <li><b>Spotlight.</b> The app adds its hand-checked and honored places to your device's search index so you can find them from Spotlight. That index stays on your device.</li>
       <li><b>Calls, websites, email and inspection lookups</b> you start from a place open in the Phone app, your browser or Mail, and are handled by them and by the site you open.</li>
     </ul>

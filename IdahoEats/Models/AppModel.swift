@@ -76,7 +76,7 @@ final class AppModel {
     /// A cold launch from Spotlight asks for the data twice (the app's .task and the search continuation); both wait on one decode.
     private var loading: Task<Void, Never>?
 
-    func load(from url: URL? = Bundle.main.url(forResource: "places", withExtension: "json")) async {
+    func load(from url: URL? = AppData.url("places")) async {
         guard !isLoaded else { return }
         if let loading { await loading.value; return }
         let task = Task { await decode(from: url) }
@@ -87,18 +87,23 @@ final class AppModel {
     private func decode(from url: URL?) async {
         guard let url else { loadError = "The restaurant data is missing from the app."; return }
         do {
-            let (file, places) = try await Task.detached(priority: .userInitiated) { () throws -> (DataFile, [Place]) in
-                let data = try Data(contentsOf: url)
-                let file = try JSONDecoder().decode(DataFile.self, from: data)
-                // kept in A-to-Z order: a filter keeps it, so the A-to-Z sort of any list is a pass over an already sorted array
-                let places = file.places.map { Place($0, file: file) }
-                    .sorted { $0.sortKey != $1.sortKey ? $0.sortKey < $1.sortKey : $0.id < $1.id }
-                return (file, places)
-            }.value
+            let (file, places) = try await Task.detached(priority: .userInitiated) { try AppModel.read(url) }.value
             apply(file: file, places: places)
         } catch {
+            // a downloaded copy this build can't read (OTA-DATA.md): back to the data built into the app
+            if let bundled = AppData.fallback(from: url) { return await decode(from: bundled) }
             loadError = "The restaurant data couldn't be read (\(error.localizedDescription))."
         }
+    }
+
+    /// Reads a places.json: launch, and the check a downloaded copy passes before it's stored (DataLayout.app, OTA-DATA.md).
+    nonisolated static func read(_ url: URL) throws -> (DataFile, [Place]) {
+        let data = try Data(contentsOf: url)
+        let file = try JSONDecoder().decode(DataFile.self, from: data)
+        // kept in A-to-Z order: a filter keeps it, so the A-to-Z sort of any list is a pass over an already sorted array
+        let places = file.places.map { Place($0, file: file) }
+            .sorted { $0.sortKey != $1.sortKey ? $0.sortKey < $1.sortKey : $0.id < $1.id }
+        return (file, places)
     }
 
     func apply(file: DataFile, places: [Place]) {
