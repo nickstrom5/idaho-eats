@@ -916,6 +916,8 @@ STORE = re.compile(r"^(?:ALBERTSONS(?: MARKET)?|WINCO(?: FOODS)?|FRED MEYER|ROSA
                    r"\b(?:SAMS CLUB|BIMBO BAKERIES|BAKERY OUTLET|THRIFT STORE|HUNT BROTHERS|HOT STUFF (?:PIZZA|FOODS|KITCHEN)|KRISPY KRUNCHY|"
                    r"CHESTERS (?:FRIED )?CHICKEN|GAS STATION|TRAVEL (?:CENTER|PLAZA|STOP)|TRUCK STOP|TRUCKSTOP|PILOT FLYING J|FLYING J|"
                    r"LOVES TRAVEL|FARMERS FRIDGE|MRBEAST|MR BEAST|ITS JUST WINGS|WOW BAO|GHOST KITCHEN|VIRTUAL KITCHEN|"
+                   # delivery-only brands cooked in another restaurant's kitchen (Denny's, Applebee's and others; QA 2026-10-29, P1 #4)
+                   r"^(?:THE )?BURGER DEN$|BANDA BURRITO|^(?:THE )?MELTDOWN$|TENDERFIX|PARDON MY CHEESESTEAK|NEIGHBORHOOD WINGS|"
                    r"LIQUORS? (?:STORE|MART|DEPOT|OUTLET|BARN|WAREHOUSE)|LIQUORS?$|IDAHO STATE LIQUOR|STATE LIQUOR STORE|WINE AND SPIRITS|"
                    r"AND SPIRITS$|GENTLEM[AE]NS CLUB|SHOWGIRLS|BABY DOLLS|TRAMPOLINE|INDOOR PLAYGROUND|DISPENSARY|CANNABIS|MARIJUANA|"
                    r"MEAT MARKET|MEATS$|BUTCHER|JERKY|VENDING|COMMISSARY|FOOD PANTRY|FOOD BANK|"
@@ -952,7 +954,7 @@ gfirst = o.gcats.fillna("").str.split("|").str[0]
 plainly_food = kd.str.contains(REALFOOD) | o.cat.isin(["bar", "brewery", "coffee_shop", "cafe"]) \
     | gfirst.str.contains(r"\b(?:Bar|Pub|Restaurant|Cafe|Café|Coffee|Tavern|Grill|Brewery|Diner|Bakery)\b", regex=True)
 brand_store = o.brand_n.isin(["Casey's", "7-Eleven", "Hunt Brothers Pizza", "Hot Stuff Pizza", "Krispy Krunchy Chicken", "MrBeast Burger",
-                              "It's Just Wings", "Maverik", "Stinker Stations", "Jacksons", "Common Cents", "Love's",
+                              "It's Just Wings", "Burger Den", "The Meltdown", "Banda Burrito", "Tenderfix", "Pardon My Cheesesteak", "Maverik", "Stinker Stations", "Jacksons", "Common Cents", "Love's",
                               "Rocky Mountain Chocolate Factory"])
 store = kd.str.contains(STORE) | k_.str.contains(r"\b(?:GAS STATION)\b") | brand_store \
     | (o.dom.isin(STORE_DOMS) & ~plainly_food) \

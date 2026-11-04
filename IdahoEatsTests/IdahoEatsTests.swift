@@ -268,7 +268,7 @@ final class IdahoEatsTests: XCTestCase {
         var cities = try XCTUnwrap(file["cities"] as? [String])
         cities.append("Coeur D Alene")
         // ordinary visible places, each broken one way
-        let idx = places.indices.filter { places[$0]["v"] == nil }.prefix(8).map { $0 }
+        let idx = places.indices.filter { places[$0]["v"] == nil }.prefix(9).map { $0 }
         places[idx[0]]["w"] = "https://www.yelp.com/biz/some-place"
         places[idx[1]]["w"] = "https://www.idahostatesman.com/news/local/article123.html"
         places[idx[2]]["a"] = "1500 West Grove Street"
@@ -279,6 +279,7 @@ final class IdahoEatsTests: XCTestCase {
         places[idx[6]]["la"] = 47.6588
         places[idx[6]]["lo"] = -117.426
         places[idx[7]]["n"] = "Tipsy Nails & Spa"
+        places[idx[8]]["n"] = "The Meltdown"
         file["places"] = places
         file["cities"] = cities
         if file["liquor_updated"] == nil || file["liquor_updated"] is NSNull { file["liquor_updated"] = "2026-10-08" }
@@ -299,6 +300,7 @@ final class IdahoEatsTests: XCTestCase {
         caught(DataGuards.lapsedExpiries(m.places, listDate: m.liquorUpdated), 5, "a 2014 expiry")
         caught(DataGuards.outsideIdaho(m.places), 6, "a place in Spokane")
         caught(DataGuards.nonRestaurants(m.places), 7, "a nail salon shown as a restaurant")
+        caught(DataGuards.nonRestaurants(m.places), 8, "a Denny's delivery-only brand shown as a restaurant (QA 2026-10-29)")
     }
 }
 
@@ -356,7 +358,8 @@ enum DataGuards {
 
     /// businesses that hold a beer-and-wine license but aren't places to eat (Colorado's QA: nail bars, senior homes, a gun store,
     /// gas stations), among the places shown by default
-    static let nonRestaurantNames = #"\bnails?\b|\bsenior\b|assisted living|firearms|gun (?:shop|store|range)|petroleum|\bsinclair\b"#
+    /// and delivery-only brands cooked in another restaurant's kitchen: Denny's The Meltdown, The Burger Den and Banda Burrito (QA 2026-10-29)
+    static let nonRestaurantNames = #"\bnails?\b|\bsenior\b|assisted living|firearms|gun (?:shop|store|range)|petroleum|\bsinclair\b|^(?:the )?(?:meltdown|burger den)$|banda burrito|tenderfix|pardon my cheesesteak|neighborhood wings"#
 
     static func nonRestaurants(_ places: [Place]) -> [String] {
         places.filter { !$0.isVenue && $0.name.range(of: nonRestaurantNames, options: [.regularExpression, .caseInsensitive]) != nil }

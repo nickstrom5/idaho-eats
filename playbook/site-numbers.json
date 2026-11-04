@@ -1,7 +1,7 @@
 {
- "generated": "2026-10-21",
+ "generated": "2026-11-03",
  "domain": "https://nickstrom5.github.io/idaho-eats",
- "restaurants": 4023,
+ "restaurants": 4006,
  "towns": 192,
  "counties": 44,
  "hand_checked": 87,
@@ -113,7 +113,7 @@
    "indexed": false
   },
   "Caldwell": {
-   "restaurants": 116,
+   "restaurants": 113,
    "listed": 5,
    "picks": 4,
    "james_beard": 1,
@@ -126,7 +126,7 @@
    "indexed": true
   },
   "Coeur d'Alene": {
-   "restaurants": 239,
+   "restaurants": 237,
    "listed": 2,
    "picks": 2,
    "james_beard": 0,
@@ -136,7 +136,7 @@
    "indexed": false
   },
   "Twin Falls": {
-   "restaurants": 161,
+   "restaurants": 160,
    "listed": 3,
    "picks": 3,
    "james_beard": 0,
@@ -149,7 +149,7 @@
    "indexed": false
   },
   "Post Falls": {
-   "restaurants": 106,
+   "restaurants": 104,
    "listed": 0,
    "picks": 0,
    "james_beard": 0,
@@ -157,7 +157,7 @@
    "indexed": false
   },
   "Lewiston": {
-   "restaurants": 87,
+   "restaurants": 84,
    "listed": 0,
    "picks": 0,
    "james_beard": 0,
@@ -165,7 +165,7 @@
    "indexed": false
   },
   "Rexburg": {
-   "restaurants": 73,
+   "restaurants": 71,
    "listed": 0,
    "picks": 0,
    "james_beard": 0,
@@ -181,7 +181,7 @@
    "indexed": false
   },
   "Moscow": {
-   "restaurants": 83,
+   "restaurants": 81,
    "listed": 0,
    "picks": 0,
    "james_beard": 0,
@@ -240,19 +240,19 @@
  },
  "regions": {
   "north-idaho": {
-   "restaurants": 691,
+   "restaurants": 687,
    "listed": 17,
    "picks": 17,
    "indexed": true
   },
   "north-central-idaho": {
-   "restaurants": 247,
+   "restaurants": 242,
    "listed": 2,
    "picks": 2,
    "indexed": false
   },
   "southwest-idaho": {
-   "restaurants": 497,
+   "restaurants": 494,
    "listed": 12,
    "picks": 11,
    "indexed": true
@@ -264,7 +264,7 @@
    "indexed": true
   },
   "magic-valley-wood-river": {
-   "restaurants": 461,
+   "restaurants": 458,
    "listed": 14,
    "picks": 14,
    "indexed": true
@@ -276,7 +276,7 @@
    "indexed": false
   },
   "eastern-idaho": {
-   "restaurants": 498,
+   "restaurants": 496,
    "listed": 9,
    "picks": 9,
    "indexed": true
