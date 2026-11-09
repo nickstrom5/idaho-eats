@@ -39,10 +39,11 @@ from urllib.parse import quote
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 DOCS = f"{ROOT}/docs"
-# Where the site lives. Until Nick's Cloudflare record (CNAME idaho -> nickstrom5.github.io, DNS only) resolves, GitHub Pages serves
-# the project address. When `dig idaho.eatsranked.com` shows the CNAME, run with ID_DOMAIN=idaho.eatsranked.com and push: this
-# writes docs/CNAME, and GitHub then forwards the old github.io links (the ones inside shipped app builds, IdahoEats/App/Links.swift).
-CUSTOM_DOMAIN = os.environ.get("ID_DOMAIN", "").strip()
+# Where the site lives: idaho.eatsranked.com (Cloudflare CNAME idaho -> nickstrom5.github.io, DNS only), since 2026-11-09
+# (Nick: "Yes, move them"; the record had pointed at GitHub with no site claiming it). This writes docs/CNAME, and GitHub
+# forwards the old github.io links (the ones inside shipped app builds, IdahoEats/App/Links.swift) here. ID_DOMAIN= (empty)
+# builds the github.io address.
+CUSTOM_DOMAIN = os.environ.get("ID_DOMAIN", "idaho.eatsranked.com").strip()
 REPO = "idaho-eats"
 DOMAIN = f"https://{CUSTOM_DOMAIN}" if CUSTOM_DOMAIN else f"https://nickstrom5.github.io/{REPO}"
 BASE = "" if CUSTOM_DOMAIN else f"/{REPO}"     # path prefix for root-relative links
