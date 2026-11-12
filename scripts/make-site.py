@@ -395,7 +395,7 @@ CSS = """
     --land: #fffdf9; --mapbg: #e9e3d6; --county: rgba(94,86,104,.35); --dot: #4b2a5c; --pin-pick: #c9a06b; --pin-honor: #2e5a4c; --pin-edge: #1f1a24;
     --radius: 16px;
     --text: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
-    --display: "Avenir Next Condensed", "HelveticaNeue-CondensedBold", "Arial Narrow", system-ui, sans-serif;
+    --display: "Avenir Next Condensed", "HelveticaNeue-CondensedBold", "Arial Narrow", system-ui, sans-serif; --head-font: "Stardos Stencil", "Avenir Next Condensed", "HelveticaNeue-CondensedBold", "Arial Narrow", system-ui, sans-serif;
     color-scheme: light;
   }
   * { box-sizing: border-box; }
@@ -412,16 +412,16 @@ CSS = """
   header.site { display: flex; align-items: center; justify-content: space-between; gap: 6px 12px; padding: 12px 0 8px; }
   .ridge { display: block; width: 100%; height: 30px; color: var(--pine); }
   .ridge .granite { fill: var(--pine); } .ridge .snow { fill: #fff; opacity: .9; } .ridge .line { fill: var(--huck); }
-  .logo { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font: 800 22px/1 var(--display); text-transform: uppercase; letter-spacing: .01em; color: var(--huck); text-decoration: none; }
+  .logo { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; font: 700 19px/1 var(--head-font); text-transform: uppercase; letter-spacing: .01em; color: var(--huck); text-decoration: none; }
   .logo svg { border-radius: 8px; flex: 0 0 auto; }
   header.site nav { display: flex; flex-wrap: wrap; gap: 0 12px; justify-content: flex-end; }
   header.site nav a, footer nav a, nav.crumbs a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 44px; }
   header.site nav a { color: var(--ink2); text-decoration: none; font-size: 15px; }
   header.site nav a:hover { color: var(--huck); text-decoration: underline; }
-  h1, h2 { font-family: var(--display); font-weight: 800; color: var(--huck); letter-spacing: -.005em; }
-  h1 { font-size: clamp(34px, 7.5vw, 54px); line-height: 1.04; margin: 0 0 16px; text-transform: uppercase; overflow-wrap: anywhere; }
+  h1, h2 { font-family: var(--head-font); font-weight: 700; color: var(--huck); letter-spacing: -.005em; }
+  h1 { font-size: clamp(26px, 8.12vw, 50px); line-height: 1.02; margin: 0 0 16px; text-transform: uppercase; overflow-wrap: anywhere; text-wrap: balance; }
   .kicker { font: 700 15px/1.4 var(--text); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
-  h2 { font-size: 32px; line-height: 1.1; margin: 0 0 10px; }
+  h2 { font-size: 28px; line-height: 1.1; margin: 0 0 10px; }
   h3 { font-size: 18px; margin: 0; line-height: 1.3; }
   .lede { font-size: 19px; color: var(--ink2); margin: 0 0 26px; }
   .hero { padding: 34px 0 28px; }
@@ -518,6 +518,14 @@ CSS = """
   }
 """
 
+# The headline face: Stardos Stencil (SIL Open Font License, in docs/fonts/OFL-Stardos-Stencil.txt). It is the site's one web font and it is served from this
+# site, so pages still load nothing from anyone else. The big headline, the section headings, card titles and the site name use it
+# (--head-font); numbers and badges keep the condensed system faces (--display).
+CSS = "".join(f'  @font-face {{ font-family: "Stardos Stencil"; src: url("{BASE}/fonts/{_f}") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; unicode-range: {_r}; }}\n'
+              for _f, _r in (
+                  ("stardos-stencil-latin.woff2", "U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD"),
+              )) + CSS
+
 
 # ---------------------------------------------------------------- structured data shared by every page
 ORG_ID, PERSON_ID, SITE_ID = f"{DOMAIN}/#org", f"{DOMAIN}/about.html#nicholas-soderstrom", f"{DOMAIN}/#website"
@@ -580,7 +588,7 @@ def csp_for(doc):
     return ("default-src 'none'; "
             f"script-src {' '.join(sha256_src(s) for s in scripts) or none}; "
             f"style-src {' '.join(sha256_src(s) for s in styles) or none}; "
-            "img-src 'self' data:; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'")
+            "img-src 'self' data:; font-src 'self'; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'")
 
 
 CSP_SLOT = "__CSP__"
@@ -661,6 +669,7 @@ def page(path, title, desc, body, lds=(), robots="index,follow,max-image-preview
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preload" href="/fonts/stardos-stencil-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="manifest" href="/site.webmanifest">
 <style>{CSS}{extra_css}</style>
 {ld}
@@ -1666,7 +1675,7 @@ assert all(p.id in set(cols["id"]) for p in PAGE_PLACES), "every place page's #p
 EXPLORE_CSS = """
   [hidden] { display: none !important; }
   .ex-hero { padding: 22px 0 4px; }
-  .ex-hero h1 { font-size: clamp(30px, 6vw, 44px); }
+  .ex-hero h1 { font-size: clamp(26px, 8.12vw, 38px); }
   .ex-hero .sub { margin-bottom: 12px; }
   .ex-controls { background: var(--bg); padding: 6px 0 8px; border-bottom: 1px solid var(--rule); }
   .ex-guides { display: flex; gap: 6px; overflow-x: auto; padding: 2px 0 8px; scrollbar-width: none; }
@@ -1728,7 +1737,7 @@ EXPLORE_CSS = """
   @media (max-width: 600px) { .ex-panel { top: auto; height: 86vh; border-left: 0; border-top: 4px solid var(--russet); border-radius: 18px 18px 0 0; } }
   .ex-close { position: sticky; top: 0; float: right; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--rule2); background: var(--surface); font: 400 26px/1 var(--text); cursor: pointer; color: var(--ink); }
   .ex-kicker { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--pine); }
-  .ex-panel h2 { font-size: 34px; margin: 4px 0 6px; text-transform: uppercase; overflow-wrap: anywhere; }
+  .ex-panel h2 { font-size: 29px; margin: 4px 0 6px; text-transform: uppercase; overflow-wrap: anywhere; }
   .ex-addr, .ex-dist { margin: 0 0 4px; color: var(--ink2); font-size: 15px; }
   .ex-actions { margin: 14px 0 8px; display: grid; gap: 8px; }
   .ex-apple { justify-content: center; }
