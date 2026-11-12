@@ -230,6 +230,12 @@ o["gi"] = o.index.map(gmatch)
 o["in21"] = o.gi.notna()
 o["closed21"] = [bool(G.closed21.iat[int(v)]) if v is not None and v == v else False for v in o.gi]
 print("matched to Google 2021:", int(o.in21.sum()), "| of those, closed by 2021:", int(o.closed21.sum()))
+# each listing's county, from the county outlines: calibrate.py and idaho.py read it from stage1 (idaho.py fills in the places
+# it adds later the same way)
+CTY = {n: prep(shape(g).buffer(0.002)) for n, g in json.load(open(f"{ID}/id_counties_detail.geojson")).items()}
+o["county"] = [next((n for n, p in CTY.items() if p.contains(Point(lo, la))), None) if la == la and lo == lo else None
+               for la, lo in zip(o.lat, o.lon)]
+print("listings with a county:", int(o.county.notna().sum()), "of", len(o))
 o.to_pickle(f"{ID}/stage1.pkl")
 G.drop(columns=["relative_results", "hours", "MISC"], errors="ignore").to_pickle(f"{ID}/google21.pkl")
 print("wrote stage1:", len(o), "listings")

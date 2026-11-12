@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-03",
+ "generated": "2026-11-12",
  "domain": "https://idaho.eatsranked.com",
  "restaurants": 4006,
  "towns": 192,
@@ -252,13 +252,13 @@
    "indexed": false
   },
   "southwest-idaho": {
-   "restaurants": 494,
+   "restaurants": 492,
    "listed": 12,
    "picks": 11,
    "indexed": true
   },
   "boise-mccall-mountain-home": {
-   "restaurants": 1315,
+   "restaurants": 1317,
    "listed": 32,
    "picks": 26,
    "indexed": true
