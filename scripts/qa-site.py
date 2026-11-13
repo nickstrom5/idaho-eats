@@ -823,6 +823,8 @@ def serve():
             if s.connect_ex(("127.0.0.1", port)) == 0:
                 continue        # someone's listening here: leave it alone
         try:
+            # the default listen backlog (5) resets one of a browser's burst of requests when the machine is busy
+            http.server.ThreadingHTTPServer.request_queue_size = 64
             srv = http.server.ThreadingHTTPServer(("127.0.0.1", port), functools.partial(Quiet, directory=root))
         except OSError:
             continue
